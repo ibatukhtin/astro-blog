@@ -3,6 +3,7 @@ import fetchApi from '../../lib/strapi';
 import type Article from '../../interfaces/article';
 import { Markdown } from '@astropub/md';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   const articles = await fetchApi<Article[]>({
@@ -39,7 +40,13 @@ const article = Astro.props;
 	<main>
 		<div class="container">
 			{ article.attributes.cover.data &&
-				<img src={ article.attributes.cover.data.attributes.formats.medium.url } alt="aaa" class="cover" />
+				<Image
+					src={ article.attributes.cover.data.attributes.formats.medium.url }
+					width={ article.attributes.cover.data.attributes.formats.medium.width }
+					height={ article.attributes.cover.data.attributes.formats.medium.height }
+					alt={article.attributes.title}
+					loading="preload"
+					class="cover" />
 			}
 			<div class="content">
 				<Markdown of={article.attributes.content} />
