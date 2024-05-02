@@ -6,7 +6,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
   const articles = await fetchApi<Article[]>({
-    endpoint: 'articles?populate=cover',
+    endpoint: 'articles?populate[cover][populate]=true',
     wrappedByKey: 'data',
   });
 
@@ -35,11 +35,11 @@ const article = Astro.props;
 		width: 100%;
 	}
 </style>
-<BaseLayout pageTitle={article.attributes.titl}>
+<BaseLayout pageTitle={article.attributes.title}>
 	<main>
 		<div class="container">
 			{ article.attributes.cover.data &&
-				<img src={ article.attributes.cover.data.attributes.url } alt="aaa" class="cover" />
+				<img src={ article.attributes.cover.data.attributes.formats.medium.url } alt="aaa" class="cover" />
 			}
 			<div class="content">
 				<Markdown of={article.attributes.content} />
