@@ -3,11 +3,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BlogPost from '../components/BlogPost.astro';
 const allPosts = await Astro.glob('../pages/posts/*.md');
 const pageTitle = "My blog";
+import fetchApi from '../lib/strapi';
+import type Article from '../interfaces/article';
+
+const articles = await fetchApi<Article[]>({
+	endpoint: 'articles?populate=image',
+	wrappedByKey: 'data',
+});
+// const res = await fetch("https://gettriptip.com/wp-json/wp/v2/posts");
+// const posts = await res.json();
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<p>This is where I will post about my journey learning Astro.</p>
 	<ul>
-		{allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
+		{
+			articles.map((article) => (
+				<li>
+					<a href={`/posts/${article.attributes.slug}/`}>
+						{article.attributes.title}
+					</a>
+				</li>
+			))
+		}
 	</ul>
+	<!--{-->
+	<!--	posts.map((post) => (-->
+	<!--		<h2 set:html={post.title.rendered} />-->
+	<!--	))-->
+	<!--}-->
 </BaseLayout>
