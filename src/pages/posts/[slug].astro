@@ -1,7 +1,8 @@
 ---
 import fetchApi from '../../lib/strapi';
 import type Article from '../../interfaces/article';
-import { Markdown } from '@astropub/md'
+import { Markdown } from '@astropub/md';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
   const articles = await fetchApi<Article[]>({
@@ -18,28 +19,31 @@ type Props = Article;
 
 const article = Astro.props;
 ---
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>{article.attributes.title}</title>
-</head>
-
-<body>
-<main>
-	{ article.attributes.cover.data && <img src={ article.attributes.cover.data.attributes.url } /> }
-
-	<h1>{article.attributes.title}</h1>
-
-	<Markdown of={article.attributes.content} />
-	<!-- Render plain text -->
-	<!--<p>{article.attributes.content}</p>-->
-	<!-- Render markdown -->
-	<!--<MyMarkdownComponent>-->
-  <!--    {article.attributes.content}-->
-	<!--</MyMarkdownComponent>-->
-	<!-- Render html -->
-	<!--<Fragment set:html={article.attributes.content} />-->
-</main>
-</body>
-</html>
+<style>
+	main {
+		display: flex;
+		justify-content: center;
+	}
+	.container {
+		max-width: 700px;
+	}
+	.cover {
+		width: 100%;
+		aspect-ratio: 3 / 2;
+	}
+	.content img {
+		width: 100%;
+	}
+</style>
+<BaseLayout pageTitle={article.attributes.titl}>
+	<main>
+		<div class="container">
+			{ article.attributes.cover.data &&
+				<img src={ article.attributes.cover.data.attributes.url } alt="aaa" class="cover" />
+			}
+			<div class="content">
+				<Markdown of={article.attributes.content} />
+			</div>
+		</div>
+	</main>
+</BaseLayout>
