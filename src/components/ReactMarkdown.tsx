@@ -14,6 +14,8 @@ export default function ReactMarkdown({ content }: Props) {
               src={ props.src || '' } alt={ props.alt || '' }
               width={ 700 }
               height={ 400 }
+              loading='lazy'
+              decoding='async'
             />
           )
         },
