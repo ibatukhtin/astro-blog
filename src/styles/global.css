@@ -81,3 +81,9 @@ h1 {
     display: none;
   }
 }
+
+.post-content {
+  img {
+    width: 100%;
+  }
+}
