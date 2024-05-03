@@ -8,7 +8,7 @@ import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   const articles = await fetchApi<Article[]>({
-    endpoint: 'articles?populate[cover][populate]=true',
+		endpoint: 'articles?populate[cover][populate]=true&sort[0]=createdAt:desc',
     wrappedByKey: 'data',
   });
 
