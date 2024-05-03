@@ -10,8 +10,6 @@ const articles = await fetchApi<Article[]>({
 	wrappedByKey: 'data',
 });
 const filtered = articles.filter((a, index) => index < 9)
-// const res = await fetch("https://gettriptip.com/wp-json/wp/v2/posts");
-// const posts = await res.json();
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -26,7 +24,8 @@ const filtered = articles.filter((a, index) => index < 9)
 							height={ article.attributes.cover.data.attributes.formats.small.height }
 							alt={article.attributes.title}
 							style={{ width: '100%', aspectRatio: '1/1', height: 'auto', objectFit: 'cover' }}
-							loading={index < 2 ? 'preload' : 'lazy'} />
+							loading={index < 2 ? 'preload' : 'lazy'}
+						/>
 					}
 					{article.attributes.title}
 				</a>

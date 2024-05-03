@@ -1,7 +1,8 @@
 ---
 import fetchApi from '../../lib/strapi';
 import type Article from '../../interfaces/article';
-import { Markdown } from '@astropub/md';
+// import { Markdown } from '@astropub/md';
+import ReactMarkdown from '../../components/ReactMarkdown';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 
@@ -30,7 +31,7 @@ const article = Astro.props;
 	}
 	.cover {
 		width: 100%;
-		aspect-ratio: 3 / 2;
+		aspect-ratio: 3/2;
 	}
 	.content img {
 		width: 100%;
@@ -41,15 +42,16 @@ const article = Astro.props;
 		<div class="container">
 			{ article.attributes.cover.data &&
 				<Image
-					src={ article.attributes.cover.data.attributes.url }
-					width={ article.attributes.cover.data.attributes.width }
-					height={ article.attributes.cover.data.attributes.height }
+					src={ article.attributes.cover.data.attributes.formats.medium.url }
+					width={ article.attributes.cover.data.attributes.formats.medium.width }
+					height={ article.attributes.cover.data.attributes.formats.medium.height }
 					alt={article.attributes.title}
 					loading="preload"
-					class="cover" />
+					style={{ width: '100%', aspectRatio: '3/2', height: 'auto', objectFit: 'cover' }}
+				/>
 			}
 			<div class="content">
-				<Markdown of={article.attributes.content} />
+				<ReactMarkdown content={article.attributes.content} />
 			</div>
 		</div>
 	</main>
