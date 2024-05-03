@@ -41,9 +41,9 @@ const article = Astro.props;
 		<div class="container">
 			{ article.attributes.cover.data &&
 				<Image
-					src={ article.attributes.cover.data.attributes.formats.medium.url }
-					width={ article.attributes.cover.data.attributes.formats.medium.width }
-					height={ article.attributes.cover.data.attributes.formats.medium.height }
+					src={ article.attributes.cover.data.attributes.url }
+					width={ article.attributes.cover.data.attributes.width }
+					height={ article.attributes.cover.data.attributes.height }
 					alt={article.attributes.title}
 					loading="preload"
 					class="cover" />
