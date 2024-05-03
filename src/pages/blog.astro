@@ -1,35 +1,36 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import BlogPost from '../components/BlogPost.astro';
-const allPosts = await Astro.glob('../pages/posts/*.md');
-const pageTitle = "My blog";
+const pageTitle = "Blog";
 import fetchApi from '../lib/strapi';
 import type Article from '../interfaces/article';
+import { Image } from 'astro:assets';
 
 const articles = await fetchApi<Article[]>({
-	endpoint: 'articles?populate=image',
+	endpoint: 'articles?populate[cover][populate]=true&sort[0]=createdAt:desc',
 	wrappedByKey: 'data',
 });
+const filtered = articles.filter((a, index) => index < 9)
 // const res = await fetch("https://gettriptip.com/wp-json/wp/v2/posts");
 // const posts = await res.json();
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<p>This is where I will post about my journey learning Astro.</p>
-	<ul>
+	<div class="blog">
 		{
-			articles.map((article) => (
-				<li>
-					<a href={`/posts/${article.attributes.slug}/`}>
-						{article.attributes.title}
-					</a>
-				</li>
+			filtered.map((article, index) => (
+				<a href={`/posts/${article.attributes.slug}/`}>
+					{ article.attributes.cover.data &&
+						<Image
+							src={ article.attributes.cover.data.attributes.formats.small.url }
+							width={ article.attributes.cover.data.attributes.formats.small.width }
+							height={ article.attributes.cover.data.attributes.formats.small.height }
+							alt={article.attributes.title}
+							style={{ width: '100%', aspectRatio: '1/1', height: 'auto', objectFit: 'cover' }}
+							loading={index < 2 ? 'preload' : 'lazy'} />
+					}
+					{article.attributes.title}
+				</a>
 			))
 		}
-	</ul>
-	<!--{-->
-	<!--	posts.map((post) => (-->
-	<!--		<h2 set:html={post.title.rendered} />-->
-	<!--	))-->
-	<!--}-->
+	</div>
 </BaseLayout>

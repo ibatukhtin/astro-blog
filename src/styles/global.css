@@ -94,3 +94,15 @@ html.dark {
 .content img {
   width: 100%;
 }
+
+.blog {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 636px) {
+  .blog {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
