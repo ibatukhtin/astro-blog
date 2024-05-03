@@ -15,7 +15,7 @@ const filtered = articles.filter((a, index) => index < 18)
 <BaseLayout pageTitle={pageTitle}>
 	<div class="blog">
 		{
-			filtered.map((article, index) => (
+			articles.map((article, index) => (
 				<a href={`/posts/${article.attributes.slug}/`}>
 					{ article.attributes.cover.data &&
 						<Image
