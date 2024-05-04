@@ -1,9 +1,10 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogLayout from '../layouts/BlogLayout.astro';
+import PostPreview from '../components/PostPreview.astro';
 const pageTitle = "Blog";
 import fetchApi from '../lib/strapi';
 import type Article from '../interfaces/article';
-import { Image } from 'astro:assets';
+import '../styles/blog-page.styles.scss';
 
 const articles = await fetchApi<Article[]>({
 	endpoint: 'articles?populate[cover][populate]=true&sort[0]=createdAt:desc',
@@ -12,24 +13,44 @@ const articles = await fetchApi<Article[]>({
 const filtered = articles.filter((a, index) => index < 18)
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-	<div class="blog">
-		{
-			articles.map((article, index) => (
-				<a href={`/${article.attributes.slug}/`}>
-					{ article.attributes.cover.data &&
-						<Image
-							src={ article.attributes.cover.data.attributes.formats.small.url }
-							width={ article.attributes.cover.data.attributes.formats.small.width }
-							height={ article.attributes.cover.data.attributes.formats.small.height }
-							alt={article.attributes.title}
-							style={{ width: '100%', aspectRatio: '1/1', height: 'auto', objectFit: 'cover' }}
-							loading={index < 2 ? 'preload' : 'lazy'}
-						/>
-					}
-					{article.attributes.title}
-				</a>
-			))
-		}
+<BlogLayout pageTitle={pageTitle}>
+	<div class="blog-page">
+		<div class="container">
+			<nav class='breadcrumbs' aria-label='Breadcrumb'>
+				<ol class='ul-unstyled breadcrumbs-list' role='list'>
+					<li class='breadcrumbs-item'><a href='/'>Main</a></li>
+					<li class='breadcrumbs-item'>Blog</li>
+				</ol>
+			</nav>
+			<div class="blog-wrapper">
+				<div class="posts-wrapper">
+					<h1><a href='/blog/all-posts'>Blog</a></h1>
+					{ articles.length && <ul class='ul-unstyled blog-list'>
+						{ articles?.map((post: Article) =>
+							<li class='blog-list-item'>
+								<PostPreview post={ post } />
+							</li>
+						) }
+					</ul> }
+				</div>
+			</div>
+		</div>
+		<!--{-->
+		<!--	articles.map((article, index) => (-->
+		<!--		<a href={`/${article.attributes.slug}/`}>-->
+		<!--			{ article.attributes.cover.data &&-->
+		<!--				<Image-->
+		<!--					src={ article.attributes.cover.data.attributes.formats.small.url }-->
+		<!--					width={ article.attributes.cover.data.attributes.formats.small.width }-->
+		<!--					height={ article.attributes.cover.data.attributes.formats.small.height }-->
+		<!--					alt={article.attributes.title}-->
+		<!--					style={{ width: '100%', aspectRatio: '1/1', height: 'auto', objectFit: 'cover' }}-->
+		<!--					loading={index < 2 ? 'preload' : 'lazy'}-->
+		<!--				/>-->
+		<!--			}-->
+		<!--			{article.attributes.title}-->
+		<!--		</a>-->
+		<!--	))-->
+		<!--}-->
 	</div>
-</BaseLayout>
+</BlogLayout>
