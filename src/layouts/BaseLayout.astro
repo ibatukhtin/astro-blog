@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import '../styles/app.scss';
 
 const { pageTitle, headerColor } = Astro.props;
 ---
@@ -20,8 +21,10 @@ const { pageTitle, headerColor } = Astro.props;
 </head>
 <body>
 <Header />
-<h1>{pageTitle}</h1>
-<slot />
+<div class="container">
+	<h1>{pageTitle}</h1>
+	<slot />
+</div>
 <Footer />
 <script>
   import "../scripts/menu.js";

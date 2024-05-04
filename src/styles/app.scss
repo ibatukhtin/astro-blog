@@ -1,0 +1,99 @@
+@import './app-global';
+@import './components/buttons';
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --rem-size: 16;
+  --city-heading-width: 100%;
+  --places-heading-width: 100%;
+  --recommended-height: 11.75rem;
+  --mantine-header-height: 3.875rem;
+  --mantine-footer-height: 3rem;
+  --tp-footer-height: 9.375rem;
+  --tp-primary-color: #F46C9E;
+  --tp-secondary-color: #FFD0E2;
+  --tp-third-color: #F46C9E;
+  --tp-light-color: #E5DBFF;
+  --gray-dark: #212529;
+  --bg: #F7F7F7;
+
+  --Pink-Accent: #F46C9E;
+  --Tender-Pink: #FFD0E2;
+  --Pink: #FB8CB4;
+  --Black: #2C2C2C;
+  --Light-Grey: #E3E3E3;
+  --Dark-Grey: #767676;
+  --BG-Absolute-White: #FFF;
+  --Text-White: #FFF;
+  --Text-Grey: #515151;
+  --BG-Purple: #F7F1F8;
+  --BG-Soft-Purple: #FCFBFE;
+  --BG-Light-Grey: #F6F6F6;
+  --Tag-purple: #DDCDD3;
+  --Pink-Shadow: 0 0 12px 0 rgba(255, 144, 184, 0.36);
+  --Grey-Shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+  --Small-Grey-Shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
+  --Large-Grey-Shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  font-size: var(--rem-size)px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  min-height: 100dvh;
+  color: var(--Black);
+}
+
+//App Shell
+.mantine-AppShell-root {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+// Common
+.noFlex {
+  flex: none;
+}
+
+.ul-unstyled {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 3rem;
+}
+
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: calc(100vh - 62px);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+

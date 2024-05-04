@@ -1,0 +1,149 @@
+// Buttons
+.button-with-arrow {
+  .mantine-Button-label {
+    position: relative;
+    overflow: visible;
+    &:after {
+      content: "";
+      background-image: url("data:image/svg+xml,%3Csvg width='21' height='16' viewBox='0 0 21 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.5216 8.5085C20.9121 8.11797 20.9121 7.48481 20.5216 7.09428L14.1576 0.730324C13.7671 0.339799 13.1339 0.339799 12.7434 0.730324C12.3529 1.12085 12.3529 1.75401 12.7434 2.14454L18.4002 7.80139L12.7434 13.4582C12.3529 13.8488 12.3529 14.4819 12.7434 14.8725C13.1339 15.263 13.7671 15.263 14.1576 14.8725L20.5216 8.5085ZM0.814453 8.80139H19.8145V6.80139H0.814453V8.80139Z' fill='white'/%3E%3C/svg%3E%0A");
+      background-position: 50%;
+      background-repeat: no-repeat;
+      height: 16px;
+      width: 21px;
+      transition-duration: .3s;
+      transition-property: transform,opacity;
+      transition-timing-function: cubic-bezier(.4,0,.2,1);
+      transform: translateX(-1rem);
+      bottom: 0;
+      margin-bottom: auto;
+      margin-top: auto;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      right: -25px;
+      top: 0;
+    }
+  }
+  .mantine-Button-label {
+    transform: translateX(0);
+    transition-duration: .3s;
+    transition-property: transform,color;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+  }
+  &__black {
+    color: #4F4F4F;
+    .mantine-Button-label {
+      &:after {
+        background-image: url("data:image/svg+xml,%3Csvg width='21' height='16' viewBox='0 0 21 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.5216 8.5085C20.9121 8.11797 20.9121 7.48481 20.5216 7.09428L14.1576 0.730324C13.7671 0.339799 13.1339 0.339799 12.7434 0.730324C12.3529 1.12085 12.3529 1.75401 12.7434 2.14454L18.4002 7.80139L12.7434 13.4582C12.3529 13.8488 12.3529 14.4819 12.7434 14.8725C13.1339 15.263 13.7671 15.263 14.1576 14.8725L20.5216 8.5085ZM0.814453 8.80139H19.8145V6.80139H0.814453V8.80139Z' fill='%234F4F4F'/%3E%3C/svg%3E%0A");
+      }
+    }
+  }
+}
+.button-with-arrow:hover {
+  .mantine-Button-label {
+    &:after {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  .mantine-Button-label {
+    transform: translateX(-0.4rem);
+  }
+}
+
+.link-with-border {
+  display: inline-block;
+  border: 2px solid var(--tp-primary-color);
+  color: var(--tp-primary-color);
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  &:hover {
+    background-color: var(--tp-secondary-color);
+    border: 2px solid var(--tp-secondary-color);
+    color: white;
+  }
+}
+
+.button-outline {
+  flex-shrink: 0;
+  padding: 0.5rem;
+  line-height: 1;
+  color: var(--tp-primary-color);
+  border: 1px solid var(--tp-primary-color);
+  background-color: transparent;
+  transition: color 0.3s, border 0.3s, background-color 0.3s;
+  &--black {
+    color: black;
+  }
+  &:hover {
+    color: white;
+    border: 1px solid var(--tp-secondary-color);
+    background-color: var(--tp-secondary-color);
+  }
+}
+
+.tp-button-white-shadow {
+  padding: 0 0.7rem;
+  color: var(--Black, #2C2C2C);
+  border: none;
+  background: var(--Text-White, #FFF);
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.08);
+  font-style: normal;
+  font-weight: 500;
+  &:hover {
+    color: var(--Black, #2C2C2C);
+    background: rgb(255, 208, 226, 0.1);
+  }
+}
+
+.tp-button-outline {
+  color: var(--Black, #2C2C2C);
+  border-radius: px-to-rem(20);
+  border: 1px solid var(--Pink, #FB8CB4);
+  background: var(--Text-White, #FFF);
+  &:hover {
+    color: var(--Black, #2C2C2C);
+    border: 1px solid var(--Pink-Accent, #F46C9E);
+    background: var(--BG-Purple, #F7F1F8);
+  }
+}
+
+.tp-button-filled {
+  border-radius: px-to-rem(20);
+  color: var(--Text-White, #FFF);
+  background: var(--Pink-Accent, #F46C9E);
+  .mantine-Button-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &:hover {
+    background: var(--Pink-Accent, #F46C9E);
+  }
+}
+
+.tp-button-filled__small {
+  @extend .tp-button-filled;
+  height: px-to-rem(36);
+}
+
+.button-black-label {
+  .mantine-Button-label {
+    color: #2C2C2C;
+  }
+}
+
+.button-link-type {
+  background-color: transparent;
+  color: #868E96;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: transparent;
+    color: var(--tp-primary-color);
+  }
+}

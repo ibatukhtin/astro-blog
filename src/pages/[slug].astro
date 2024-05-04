@@ -1,9 +1,9 @@
 ---
-import fetchApi from '../../lib/strapi';
-import type Article from '../../interfaces/article';
+import fetchApi from '../lib/strapi';
+import type Article from '../interfaces/article';
 // import { Markdown } from '@astropub/md';
-import ReactMarkdown from '../../components/ReactMarkdown';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReactMarkdown from '../components/ReactMarkdown';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {

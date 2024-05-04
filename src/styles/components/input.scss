@@ -1,0 +1,25 @@
+// Input
+@mixin input-style {
+  border: 0.5px solid var(--Dark-Grey);
+  caret-color: var(--Pink-Accent);
+  border-radius: px-to-rem(20);
+  font-size: 1rem;
+  &:focus {
+    border-color: var(--Tender-Pink);
+    font-size: 1rem;
+  }
+  &[aria-invalid='true'] {
+    color: var(--Black);
+    border-color: var(--Pink-Accent);
+  }
+}
+
+.tp-input {
+  input, textarea {
+    @include input-style;
+  }
+}
+
+.mantine-DatePickerInput-input {
+  @include input-style;
+}
