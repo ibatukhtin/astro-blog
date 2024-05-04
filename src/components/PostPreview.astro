@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import '../styles/postPreview.styles.scss';
-const { post } = Astro.props;
+const { post, loading } = Astro.props;
 const {
   title,
   description,
@@ -23,7 +23,7 @@ const {
 					  alt={ title }
 					  width='308'
 					  height='160'
-					  loading='preload'
+					  loading={loading}
 				  />
 				}
 				{ cover?.data && !static_img_url &&
@@ -33,7 +33,7 @@ const {
 					  height='160'
 					  className='blog-list-item__image'
 					  alt={ title }
-					  loading='preload'
+						loading={loading}
 				  />
 				}
 			</div>

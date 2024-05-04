@@ -26,9 +26,9 @@ const filtered = articles.filter((a, index) => index < 18)
 				<div class="posts-wrapper">
 					<h1><a href='/blog/all-posts'>Blog</a></h1>
 					{ articles.length && <ul class='ul-unstyled blog-list'>
-						{ articles?.map((post: Article) =>
+						{ articles?.map((post: Article, index) =>
 							<li class='blog-list-item'>
-								<PostPreview post={ post } />
+								<PostPreview post={ post } loading={index < 2 ? 'preload' : 'lazy'} />
 							</li>
 						) }
 					</ul> }
