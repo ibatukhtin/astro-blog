@@ -1,7 +1,7 @@
 function Hero() {
   return (
     <section id='hero' className='hero'>
-      <div className='row'>
+      <div className='row' style={{height:'458px'}}>
         <div className='col'>
           <div className='hero__content'>
             <h1 className='hero__title'>
