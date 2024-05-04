@@ -1,14 +1,14 @@
 ---
+import '../styles/blog-post.styles.scss';
 import fetchApi from '../lib/strapi';
 import type Article from '../interfaces/article';
-// import { Markdown } from '@astropub/md';
 import ReactMarkdown from '../components/ReactMarkdown';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogLayout from '../layouts/BlogLayout.astro';
 import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   const articles = await fetchApi<Article[]>({
-		endpoint: 'articles?populate[cover][populate]=true&sort[0]=createdAt:desc',
+		endpoint: 'articles?sort[0]=createdAt:desc&populate[category][fields][0]=name&populate[category][fields][1]=slug&populate[tags][fields][0]=name&populate[tags][fields][1]=slug&populate[tags][fields][2]=color&populate[cover][fields][1]=formats&populate[author][fields][0]=name&populate[author][fields][1]=slug&populate[author][fields][2]=caption&populate[author][fields][3]=caption_line_2&populate[author][fields][4]=link&populate[author][populate][avatar][fields][0]=url',
     wrappedByKey: 'data',
   });
 
@@ -18,41 +18,81 @@ export async function getStaticPaths() {
   }));
 }
 type Props = Article;
-
 const article = Astro.props;
 ---
-<style>
-	main {
-		display: flex;
-		justify-content: center;
-	}
-	.container {
-		max-width: 700px;
-	}
-	.cover {
-		width: 100%;
-		aspect-ratio: 3/2;
-	}
-	.content img {
-		width: 100%;
-	}
-</style>
-<BaseLayout pageTitle={article.attributes.title}>
-	<main>
+<BlogLayout pageTitle={article.attributes.title}>
+	<div class="blog-post">
 		<div class="container">
-			{ article.attributes.cover.data &&
-				<Image
-					src={ article.attributes.cover.data.attributes.formats.medium.url }
-					width={ article.attributes.cover.data.attributes.formats.medium.width }
-					height={ article.attributes.cover.data.attributes.formats.medium.height }
-					alt={article.attributes.title}
-					loading="preload"
-					style={{ width: '100%', aspectRatio: '3/2', height: 'auto', objectFit: 'cover' }}
-				/>
-			}
-			<div class="content">
-				<ReactMarkdown content={article.attributes.content} />
+			<div class="post-grid">
+				<div class="post-content">
+					<article>
+						<nav class='breadcrumbs' aria-label='Breadcrumb'>
+							<ol class='ul-unstyled breadcrumbs-list' role='list'>
+								<li class='breadcrumbs-item'><a href='/'>Main</a></li>
+								<li class='breadcrumbs-item'><a href='/blog'>Blog</a></li>
+								<li class='breadcrumbs-item'>{ article.attributes.title }</li>
+							</ol>
+						</nav>
+
+						<section class="blog-content">
+							<div class="blog-heading">
+								<h1 class='blog-post-title'>{ article.attributes.title }</h1>
+								<div class="blog-heading-meta">
+									{ article.attributes.cover.data &&
+										<Image
+											src={ article.attributes.cover.data.attributes.formats.medium.url }
+											width={ article.attributes.cover.data.attributes.formats.medium.width }
+											height={ article.attributes.cover.data.attributes.formats.medium.height }
+											alt={article.attributes.title}
+											loading="preload"
+											style={{ width: '100%', aspectRatio: '3/2', height: 'auto', objectFit: 'cover' }}
+										/>
+									}
+								</div>
+							</div>
+							<div class="blog-body">
+								<ReactMarkdown content={article.attributes.content} />
+							</div>
+						</section>
+					</article>
+
+					{ article.attributes.tags &&
+						<div class='blog-tags'>
+							<ul class='ul-unstyled blog-tags-list'>
+								{ article.attributes.tags?.data.map(tag =>
+									<li class='blog-tags-item'>
+										<a
+											href={ `/tags/${ tag.attributes.slug }` }
+											style={ { borderColor: tag.attributes.color } }
+										>
+											<span style={ { color: tag.attributes.color } }>
+												{ tag.attributes.name }
+											</span>
+										</a>
+									</li>
+								) }
+							</ul>
+						</div>
+					}
+				</div>
 			</div>
 		</div>
-	</main>
-</BaseLayout>
+	</div>
+	<!--<main>-->
+	<!--	<div class="container">-->
+	<!--		{ article.attributes.cover.data &&-->
+	<!--			<Image-->
+	<!--				src={ article.attributes.cover.data.attributes.formats.medium.url }-->
+	<!--				width={ article.attributes.cover.data.attributes.formats.medium.width }-->
+	<!--				height={ article.attributes.cover.data.attributes.formats.medium.height }-->
+	<!--				alt={article.attributes.title}-->
+	<!--				loading="preload"-->
+	<!--				style={{ width: '100%', aspectRatio: '3/2', height: 'auto', objectFit: 'cover' }}-->
+	<!--			/>-->
+	<!--		}-->
+	<!--		<div class="content">-->
+	<!--			<ReactMarkdown content={article.attributes.content} />-->
+	<!--		</div>-->
+	<!--	</div>-->
+	<!--</main>-->
+</BlogLayout>
