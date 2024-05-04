@@ -40,6 +40,7 @@ const article = Astro.props;
 								<div class="blog-heading-meta">
 									{ article.attributes.cover.data &&
 										<Image
+											className='blog-post-image'
 											src={ article.attributes.cover.data.attributes.formats.medium.url }
 											width={ article.attributes.cover.data.attributes.formats.medium.width }
 											height={ article.attributes.cover.data.attributes.formats.medium.height }
