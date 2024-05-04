@@ -16,7 +16,8 @@ import FooterInfo from '../components/FooterInfo.astro';
 				<Image
 					src={ TriPlayLogo }
 					alt='TriPlay'
-					loading="preload"
+					loading="lazy"
+					decoding="async"
 				/>
 			</a>
 			<div class='footer__header-divider'></div>
@@ -41,6 +42,8 @@ import FooterInfo from '../components/FooterInfo.astro';
 							width={ 123 }
 							height={ 27 }
 							alt='Vallex.io'
+							loading="lazy"
+							decoding="async"
 						/>
 					</a>
 				</div>
