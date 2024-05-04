@@ -7,7 +7,7 @@ import type Article from '../interfaces/article';
 import '../styles/blog-page.styles.scss';
 
 const articles = await fetchApi<Article[]>({
-	endpoint: 'articles?populate[cover][populate]=true&sort[0]=createdAt:desc',
+	endpoint: 'articles?populate[cover][populate]=true&sort[0]=createdAt:desc&pagination[pageSize]=24&pagination[page]=1',
 	wrappedByKey: 'data',
 });
 const filtered = articles.filter((a, index) => index < 18)
@@ -25,7 +25,8 @@ const filtered = articles.filter((a, index) => index < 18)
 			<div class="blog-wrapper">
 				<div class="posts-wrapper">
 					<h1><a href='/blog/all-posts'>Blog</a></h1>
-					{ articles.length && <ul class='ul-unstyled blog-list'>
+					{ articles.length &&
+						<ul class='ul-unstyled blog-list'>
 						{ articles?.map((post: Article, index) =>
 							<li class='blog-list-item'>
 								<PostPreview post={ post } loading={index < 2 ? 'preload' : 'lazy'} />
