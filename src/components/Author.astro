@@ -16,9 +16,9 @@ const {
 		{ !!avatar.data &&
 			<a target='_blank' href={ link }>
 				<Image
-					src={ avatar.data.attributes.formats.small.url }
-					width={ avatar.data.attributes.formats.small.width }
-					height={ avatar.data.attributes.formats.small.height }
+					src={ avatar.data.attributes.url }
+					width='64px'
+					height='64px'
 					alt={ name }
 					loading='lazy'
 					decoding="async"
