@@ -1,0 +1,97 @@
+---
+import { Image } from 'astro:assets';
+import Facebook from '../../public/icons/facebook.svg';
+import X from '../../public/icons/x.svg';
+import Instagram from '../../public/icons/instagram.svg';
+import LinkedIn from '../../public/icons/linkedin.svg';
+import F6s from '../../public/icons/f6s.svg';
+---
+
+<div class='footer__grid-info'>
+	<div class='menu-item'>
+		<div class='menu-item__title'>
+			Company
+		</div>
+		<a href='mailto:support@triplay.ai'>
+			<span>Contact Us</span>
+		</a>
+		<a href='/privacy'>
+			<span>Privacy Policy</span>
+		</a>
+		<a href='/terms'>
+			<span>Terms of Service</span>
+		</a>
+		<a href='/blog'>
+			<span>Blog</span>
+		</a>
+	</div>
+
+	<div class='menu-item'>
+		<div class='menu-item__title'>
+			Resources
+		</div>
+		<a href='/write-for-us'>
+			<span>Write for us</span>
+		</a>
+		<a href='/become-partner'>
+			<span>Become a partner</span>
+		</a>
+		{/* <a href='/places'>
+          <span>Places</span>
+        </a> */}
+	</div>
+
+	<div class='menu-item menu-item_social'>
+		<div class='menu-item_social__divider'></div>
+		<div class='menu-item__title'>
+			Follow Us
+		</div>
+		<div class='social-wrapper'>
+			<a href='https://www.facebook.com/profile.php?id=61552396826102' target='_blank'>
+				<Image
+					src={ Facebook }
+					width={ 28 }
+					height={ 28 }
+					alt='Facebook logo'
+				/>
+				<span>Facebook</span>
+			</a>
+			<a href='https://twitter.com/MyTriplay' target='_blank'>
+				<Image
+					src={ X }
+					width={ 28 }
+					height={ 28 }
+					alt='X (former Twitter) logo'
+				/>
+				<span>X (former Twitter)</span>
+			</a>
+			<a href='https://www.instagram.com/triplay.ai/' target='_blank'>
+				<Image
+					src={ Instagram }
+					width={ 28 }
+					height={ 28 }
+					alt='Instagram logo'
+				/>
+				<span>Instagram</span>
+			</a>
+			<a href='https://www.linkedin.com/company/mytriplay/' target='_blank'>
+				<Image
+					src={ LinkedIn }
+					width={ 28 }
+					height={ 28 }
+					alt='LinkedIn logo'
+				/>
+				<span>LinkedIn</span>
+			</a>
+			<a href='https://www.f6s.com/triplay-ai-travel-planner?follow=1' target='_blank'>
+				<Image
+					src={ F6s }
+					width={ 28 }
+					height={ 28 }
+					alt='Follow Triplay AI Travel Planner on F6S'
+				/>
+				<span>Follow</span>
+			</a>
+		</div>
+	</div>
+</div>

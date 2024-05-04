@@ -42,10 +42,14 @@
 }
 
 html {
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 5rem;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   font-size: var(--rem-size)px;
   -webkit-font-smoothing: antialiased;
+  background-color: #fff;
 }
 
 body {
@@ -81,7 +85,6 @@ body {
   margin-right: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  padding-top: 3rem;
 }
 
 .centered-container {

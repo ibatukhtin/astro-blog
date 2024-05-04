@@ -1,22 +1,50 @@
 ---
-import Social from './Social.astro';
-
-const platform = "github";
-const username = "withastro";
+import '../styles/footer.styles.scss';
+import TriPlayLogo from '../../public/images/triplay-logo.svg';
+import VallexLogo from '../../public/images/vallex-logo-grey.svg';
+import { Image } from 'astro:assets';
+import FooterInfo from '../components/FooterInfo.astro';
 ---
 
-<style>
-	footer {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		margin-top: 2rem;
-	}
-</style>
+<footer class="footer">
+	<div class="footer__inner">
+		<div class="footer__header">
+			<a
+				href="/"
+				aria-label='TriPlay'
+				style={ { display: 'flex', alignItems: 'center' } }>
+				<Image
+					src={ TriPlayLogo }
+					alt='TriPlay'
+					loading="preload"
+				/>
+			</a>
+			<div class='footer__header-divider'></div>
+		</div>
 
-<footer>
-	<p>Learn more about my projects on <a href={`https://www.${platform}.com/${username}`}>{platform}</a>!</p>
-	<Social platform="twitter" username="astrodotbuild" />
-	<Social platform="github" username="withastro" />
-	<Social platform="youtube" username="astrodotbuild" />
+		<div class="footer__grid">
+			<div class="footer__grid-subscribe">
+				<div class='subscribe-header__text'>Subscribe to our Newsletters!</div>
+			</div>
+			<FooterInfo />
+		</div>
+
+		<div class='footer__bottom'>
+			<div class='footer__bottom-divider'></div>
+			<div class='footer__bottom-wrapper'>
+				<div>© 2024 Vallex GmbH</div>
+				<div class='footer__bottom-vallex'>
+					<div>Powered by</div>
+					<a href='https://vallex.io' target='_blank'>
+						<Image
+							src={ VallexLogo }
+							width={ 123 }
+							height={ 27 }
+							alt='Vallex.io'
+						/>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </footer>

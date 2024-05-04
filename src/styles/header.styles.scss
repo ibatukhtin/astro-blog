@@ -10,6 +10,7 @@ body {
     background-color: var(--Text-White);
     box-shadow: none;
     transition: top 0.8s;
+    z-index: 999;
   }
 
   .header__container {
