@@ -1,7 +1,20 @@
 ---
+import '../styles/landing.styles.scss';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from "../components/landing/hero";
+import Benefits from "../components/landing/benefits";
 const pageTitle = "Home Page";
 ---
-<BaseLayout pageTitle={pageTitle}>
-	<h2>My awesome blog subtitle</h2>
+<BaseLayout>
+	<div class="landing-grid">
+		<Hero />
+
+		<section id='subtitle'>
+			<div class='section-title'>
+				<h2>Why is it better to travel with a Triplay travel planner?</h2>
+			</div>
+		</section>
+
+		<Benefits />
+	</div>
 </BaseLayout>
