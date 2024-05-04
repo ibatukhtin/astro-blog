@@ -22,7 +22,7 @@ function Hero() {
         <div className='col col-with-image'>
           <div className='hero__image'>
             <img
-              src='../../../public/images/landing/hero-image.webp'
+              src='/images/landing/hero-image.webp'
               alt='Triplay AI travel planning'
               loading="eager"
             />
