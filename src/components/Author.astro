@@ -1,0 +1,38 @@
+---
+const { author } = Astro.props;
+import { Image } from 'astro:assets';
+const {
+	name,
+	slug,
+	caption,
+	caption_line_2,
+	link,
+	avatar,
+} = author.attributes;
+---
+
+<section>
+	<div class="author-container">
+		{ !!avatar.data &&
+			<a target='_blank' href={ link }>
+				<Image
+					src={ avatar.data.attributes.formats.small.url }
+					width={ avatar.data.attributes.formats.small.width }
+					height={ avatar.data.attributes.formats.small.height }
+					alt={ name }
+					loading='lazy'
+					decoding="async"
+				/>
+			</a>
+		}
+		<div>
+			<div class='author-name'>
+				<a href={ `/authors/${ slug }` }>{ name }</a>
+			</div>
+          { !!caption &&
+			  <div class='author-caption'>{ caption }</div> }
+          { !!caption_line_2 &&
+			  <div class='author-caption'>{ caption_line_2 }</div> }
+		</div>
+	</div>
+</section>

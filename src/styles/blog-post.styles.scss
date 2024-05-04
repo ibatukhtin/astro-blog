@@ -386,6 +386,18 @@
     font-weight: 700;
   }
 
+  .author-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    img {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
   .author {
     display: block;
     padding-top: 2rem;

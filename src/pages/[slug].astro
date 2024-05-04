@@ -4,11 +4,12 @@ import fetchApi from '../lib/strapi';
 import type Article from '../interfaces/article';
 import ReactMarkdown from '../components/ReactMarkdown';
 import BlogLayout from '../layouts/BlogLayout.astro';
-import { Image } from 'astro:assets';
+import Author from '../components/Author.astro';
+import PostHeader from '../components/PostHeader.astro';
 
 export async function getStaticPaths() {
   const articles = await fetchApi<Article[]>({
-		endpoint: 'articles?sort[0]=createdAt:desc&populate[category][fields][0]=name&populate[category][fields][1]=slug&populate[tags][fields][0]=name&populate[tags][fields][1]=slug&populate[tags][fields][2]=color&populate[cover][fields][1]=formats&populate[author][fields][0]=name&populate[author][fields][1]=slug&populate[author][fields][2]=caption&populate[author][fields][3]=caption_line_2&populate[author][fields][4]=link&populate[author][populate][avatar][fields][0]=url',
+		endpoint: 'articles?sort[0]=title:desc&populate[category][fields][0]=name&populate[category][fields][1]=slug&populate[tags][fields][0]=name&populate[tags][fields][1]=slug&populate[tags][fields][2]=color&populate[cover][fields][0]=url&populate[cover][fields][1]=formats&populate[author][fields][0]=name&populate[author][fields][1]=slug&populate[author][fields][2]=caption&populate[author][fields][3]=caption_line_2&populate[author][fields][4]=link&populate[author][populate][avatar][fields][0]=formats&populate[relatedArticles][fields][0]=title&populate[relatedArticles][fields][1]=slug&populate[relatedArticles][fields][2]=description&populate[relatedArticles][fields][3]=url&populate[relatedArticles][fields][4]=publishedAt&populate[relatedArticles][fields][5]=static_date&populate[relatedArticles][fields][6]=static_img_url&populate[relatedArticles][populate][cover][fields][0]=url&populate[relatedArticles][populate][cover][fields][1]=formats&populate[seo][populate]=*',
     wrappedByKey: 'data',
   });
 
@@ -35,26 +36,13 @@ const article = Astro.props;
 						</nav>
 
 						<section class="blog-content">
-							<div class="blog-heading">
-								<h1 class='blog-post-title'>{ article.attributes.title }</h1>
-								<div class="blog-heading-meta">
-									{ article.attributes.cover.data &&
-										<Image
-											className='blog-post-image'
-											src={ article.attributes.cover.data.attributes.formats.medium.url }
-											width={ article.attributes.cover.data.attributes.formats.medium.width }
-											height={ article.attributes.cover.data.attributes.formats.medium.height }
-											alt={article.attributes.title}
-											loading="preload"
-											style={{ width: '100%', aspectRatio: '3/2', height: 'auto', objectFit: 'cover' }}
-										/>
-									}
-								</div>
-							</div>
+							<PostHeader post={article} />
 							<div class="blog-body">
 								<ReactMarkdown content={article.attributes.content} />
 							</div>
 						</section>
+
+						<Author author={article.attributes.author.data} />
 					</article>
 
 					{ article.attributes.tags &&
@@ -79,21 +67,4 @@ const article = Astro.props;
 			</div>
 		</div>
 	</div>
-	<!--<main>-->
-	<!--	<div class="container">-->
-	<!--		{ article.attributes.cover.data &&-->
-	<!--			<Image-->
-	<!--				src={ article.attributes.cover.data.attributes.formats.medium.url }-->
-	<!--				width={ article.attributes.cover.data.attributes.formats.medium.width }-->
-	<!--				height={ article.attributes.cover.data.attributes.formats.medium.height }-->
-	<!--				alt={article.attributes.title}-->
-	<!--				loading="preload"-->
-	<!--				style={{ width: '100%', aspectRatio: '3/2', height: 'auto', objectFit: 'cover' }}-->
-	<!--			/>-->
-	<!--		}-->
-	<!--		<div class="content">-->
-	<!--			<ReactMarkdown content={article.attributes.content} />-->
-	<!--		</div>-->
-	<!--	</div>-->
-	<!--</main>-->
 </BlogLayout>
