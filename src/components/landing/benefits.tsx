@@ -49,6 +49,8 @@ const Item = (item: any) => {
           <div className='benefits__image'>
             <img
               src={ item.image }
+              width={ item.width }
+              height={ item.height }
               style={ { width: '100%', height: 'auto' } }
               alt='AI optimizing the route'
             />
