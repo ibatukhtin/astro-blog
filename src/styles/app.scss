@@ -83,11 +83,8 @@ body {
   max-width: 70rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  @media screen and (min-width: 1024px) {
-    padding: 0;
-  }
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .centered-container {

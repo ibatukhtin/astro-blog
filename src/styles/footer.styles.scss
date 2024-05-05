@@ -11,7 +11,11 @@
 .footer {
   display: flex;
   justify-content: center;
+  max-width: 70rem;
+  width: 100%;
   margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
   background-color: white;
   padding: 4rem 1rem 0;
   @media (max-width: 62rem) {
@@ -23,7 +27,6 @@
 
   &__inner {
     width: 100%;
-    max-width: 67rem;
     border-radius: px-to-rem(44) px-to-rem(44) 0 0;
     background-color: #F4F4F4;
     padding: px-to-rem(24) px-to-rem(44) px-to-rem(12);

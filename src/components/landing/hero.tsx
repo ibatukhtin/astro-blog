@@ -1,7 +1,7 @@
 function Hero() {
   return (
     <section id='hero' className='hero'>
-      <div className='row' style={{height:'458px'}}>
+      <div className='row'>
         <div className='col'>
           <div className='hero__content'>
             <h1 className='hero__title'>
@@ -23,6 +23,8 @@ function Hero() {
           <div className='hero__image'>
             <img
               src='/images/landing/hero-image.webp'
+              width='600'
+              height='483'
               alt='Triplay AI travel planning'
               loading="eager"
             />

@@ -3,34 +3,32 @@ import { items } from './benefits-items';
 function Benefits() {
   return (
     <section id='benefits' className='benefits'>
-      <div className='container'>
-        <ul className='ul-unstyled benefits__list'>
-          {
-            items.filter((item, index) => index < 3)
-              .map((filteredItem) => Item(filteredItem))
-          }
+      <ul className='ul-unstyled benefits__list'>
+        {
+          items.filter((item, index) => index < 3)
+            .map((filteredItem) => Item(filteredItem))
+        }
 
-          <li className='instant'>
-            <h3>Instant trip planning at your fingertips – Try now for free</h3>
-            <div className='hero__buttons'>
-              <a
-                className='landing__login button-with-arrow tp-button-filled'
-                href='/create-trip'
-                id='createTrip3'
-              >
+        <li className='instant'>
+          <h3>Instant trip planning at your fingertips – Try now for free</h3>
+          <div className='hero__buttons'>
+            <a
+              className='landing__login button-with-arrow tp-button-filled'
+              href='/create-trip'
+              id='createTrip3'
+            >
                 <span className='mantine-Button-label'>
                 Create trip
               </span>
-              </a>
-            </div>
-          </li>
+            </a>
+          </div>
+        </li>
 
-          {
-            items.filter((item, index) => index > 2)
-              .map((filteredItem) => Item(filteredItem))
-          }
-        </ul>
-      </div>
+        {
+          items.filter((item, index) => index > 2)
+            .map((filteredItem) => Item(filteredItem))
+        }
+      </ul>
     </section>
   )
 }
