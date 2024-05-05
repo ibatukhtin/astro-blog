@@ -1,0 +1,15 @@
+---
+import fetchApi from '../lib/strapi';
+import type Article from '../interfaces/article';
+import '../styles/blog-page.styles.scss';
+import LastPostsCarousel from '../components/lastPostsCarousel';
+
+const articles = await fetchApi<Article[]>({
+  endpoint: 'articles?populate[cover][populate]=true&sort[0]=createdAt:desc&pagination[pageSize]=6&pagination[page]=1',
+  wrappedByKey: 'data',
+});
+---
+
+<LastPostsCarousel articles={articles} client:idle />
+
+
