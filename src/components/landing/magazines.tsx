@@ -11,6 +11,9 @@ function Magazines() {
             <img
               src='/images/magazines/best-startup.webp'
               alt='Best Startup'
+              width='170'
+              height='26'
+              loading='lazy'
             />
           </a>
           <a className='trend-hunter'
@@ -18,6 +21,9 @@ function Magazines() {
             <img
               src='/images/magazines/trend-hunter.webp'
               alt='Trend Hunter'
+              width='180'
+              height='45'
+              loading='lazy'
             />
           </a>
           <a className='phocus-wire-item'
@@ -26,7 +32,10 @@ function Magazines() {
             <img
               src='/images/magazines/phocuswire.webp'
               alt='Phocus Wire'
+              width='198'
+              height='41'
               className='phocus-wire'
+              loading='lazy'
             />
           </a>
           <a href='https://startupsmagazine.co.uk/article-discovering-inspiration-through-travel-easier-triplay'
@@ -34,13 +43,19 @@ function Magazines() {
             <img
               src='/images/magazines/startups-magazine.webp'
               alt='Startups Magazine'
+              width='158'
+              height='48'
               className='startups-magazine'
+              loading='lazy'
             />
           </a>
           <a href='https://www.producthunt.com/products/triplay#triplay' target='_blank'>
             <img
               src='/images/magazines/product-hunt.webp'
               alt='Product Hunt'
+              width='180'
+              height='43'
+              loading='lazy'
             />
           </a>
         </div>

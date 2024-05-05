@@ -53,6 +53,7 @@ const Item = (item: any) => {
               height={ item.height }
               style={ { width: '100%', height: 'auto' } }
               alt='AI optimizing the route'
+              loading='lazy'
             />
           </div>
         </div>
