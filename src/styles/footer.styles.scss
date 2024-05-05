@@ -288,7 +288,7 @@
         flex-direction: column;
         gap: px-to-rem(16);
         @media (max-width: 48rem) {
-          gap: px-to-rem(8);
+          gap: px-to-rem(12);
         }
 
         &_social {

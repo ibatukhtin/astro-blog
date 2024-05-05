@@ -77,8 +77,8 @@ export default function LastPostsCarousel({ articles }: Props) {
                 </CarouselItem>
               ) }
             </CarouselContent>
-            <CarouselPrevious style={{left: '-1rem'}} />
-            <CarouselNext style={{right: '-1rem'}} />
+            <CarouselPrevious className='w-12 h-12' style={{left: '-1rem'}} />
+            <CarouselNext className='w-12 h-12' style={{right: '-1rem'}} />
           </Carousel>
         </div>
       </div>
