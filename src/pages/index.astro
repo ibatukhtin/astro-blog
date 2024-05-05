@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from "../components/landing/hero";
 import Benefits from "../components/landing/benefits";
 import Magazines from "../components/landing/magazines";
+import Faq from "../components/landing/faq";
 const pageTitle = "Home Page";
 ---
 <BaseLayout>
@@ -18,5 +19,6 @@ const pageTitle = "Home Page";
 
 		<Benefits />
 		<Magazines />
+		<Faq client:idle />
 	</div>
 </BaseLayout>
