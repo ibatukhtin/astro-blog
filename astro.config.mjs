@@ -6,7 +6,6 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   integrations: [
-    preact(),
     react(),
     tailwind({
       applyBaseStyles: false,
