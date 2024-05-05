@@ -1,5 +1,6 @@
 @import './app-global';
 @import './components/buttons';
+@import './components/accordion';
 
 *,
 *::after,
@@ -27,6 +28,7 @@
   --Pink: #FB8CB4;
   --Black: #2C2C2C;
   --Light-Grey: #E3E3E3;
+  --Lightest-Grey: #f8f9fa;
   --Dark-Grey: #767676;
   --BG-Absolute-White: #FFF;
   --Text-White: #FFF;

@@ -1,0 +1,13 @@
+// Accordion
+.border-b {
+  &:last-child {
+    border-bottom: none;
+  }
+  .hover\:underline:hover {
+    text-decoration-line: none;
+    background: var(--Lightest-Grey);
+  }
+  button {
+    padding: 1rem;
+  }
+}

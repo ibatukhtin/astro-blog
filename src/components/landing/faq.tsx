@@ -42,7 +42,7 @@ function Faq() {
               { items.map((item) => (
                 <AccordionItem key={ item.value } value={ item.value }>
                   <AccordionTrigger>{ item.value }</AccordionTrigger>
-                  <AccordionContent>{ item.description }</AccordionContent>
+                  <AccordionContent className='p-4'>{ item.description }</AccordionContent>
                 </AccordionItem>
               )) }
             </Accordion>
