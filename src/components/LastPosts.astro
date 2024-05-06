@@ -9,7 +9,15 @@ const articles = await fetchApi<Article[]>({
   wrappedByKey: 'data',
 });
 ---
-
-<LastPostsCarousel articles={articles} client:idle />
+<section id='last-posts'>
+	<div class='container last-posts-container'>
+		<div class='last-posts'>
+			<div class='section-title'>
+				<h2><a href='/blog'>Playful travel planner blog</a></h2>
+			</div>
+			<LastPostsCarousel articles={ articles } client:idle />
+		</div>
+	</div>
+</section>
 
 
