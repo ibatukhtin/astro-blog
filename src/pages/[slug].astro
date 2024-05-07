@@ -22,21 +22,21 @@ export async function getStaticPaths() {
 type Props = Article;
 const article = Astro.props;
 const metadata = article?.attributes.seo;
-const related = article.attributes.relatedArticles?.data;
+const related = article?.attributes.relatedArticles?.data;
 const openGraph = {
 	basic: {
-		title: metadata.metaTitle,
-		description: metadata?.metaDescription,
+		title: metadata?.metaTitle ? metadata?.metaTitle : article.attributes.title,
 		type: "article",
-		image: article.attributes.cover.data.attributes.url,
-		authors: article?.attributes.author.data.attributes.name,
-		section: article?.attributes.category.data.attributes.name,
+		image: 'https://triplay.ai/triplay-logo.svg',
+		authors: article?.attributes.author.data?.attributes.name,
+		section: article?.attributes.category.data?.attributes.name,
 		tags: article?.attributes.tags?.data.map(tag => tag.attributes.name),
+		description: metadata?.metaDescription,
 	}
 };
 ---
 <BaseLayout
-	pageTitle={article.attributes.title}
+	pageTitle={article?.attributes.title}
 	description={metadata?.metaDescription}
 	keywords={metadata?.metaKeywords}
 	openGraph={openGraph}
