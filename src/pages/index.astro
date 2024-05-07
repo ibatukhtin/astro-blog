@@ -7,8 +7,34 @@ import Magazines from "../components/landing/magazines";
 import Faq from "../components/landing/faq";
 import LastPosts from "../components/LastPosts.astro";
 const pageTitle = "Triplay Travel Planner: Smart & Playful Trips!";
+const description = 'Discover Triplay Travel Planner, your personal travel assistant powered by AI. Plan the perfect vacation, explore new destinations. Get started now!';
+const keywords = 'Triplay, travel planner, ai trip planner, trip planner, ai journey planner, trip planner ai, itinerary planner';
+const twitter = {
+	card: 'summary',
+	title: 'Playful travel planner:balloon:Just open Triplay and create your best trip ever!:zap:',
+	site: '@MyTriplay',
+	images: [
+		{
+			url: 'https://triplay.ai/triplay-logo.svg',
+			alt: 'Triplay Logo'
+		}
+	]
+};
+const openGraph = {
+	basic: {
+		title: "Triplay Travel Planner: Smart & Playful Trips!",
+		type: "website",
+		image: "https://triplay.ai/triplay-logo.svg",
+	}
+};
 ---
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout
+	pageTitle={pageTitle}
+	description={description}
+	keywords={keywords}
+	openGraph={openGraph}
+	twitter={twitter}
+>
 	<div class="landing-grid">
 		<Hero />
 
