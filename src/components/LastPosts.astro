@@ -2,7 +2,7 @@
 import fetchApi from '../lib/strapi';
 import type Article from '../interfaces/article';
 import '../styles/blog-page.styles.scss';
-import LastPostsCarousel from '../components/lastPostsCarousel';
+import LastPostsCarousel from '../components/LastPostsCarousel';
 
 const articles = await fetchApi<Article[]>({
   endpoint: 'articles?populate[cover][populate]=true&sort[0]=createdAt:desc&pagination[pageSize]=6&pagination[page]=1',
@@ -10,7 +10,7 @@ const articles = await fetchApi<Article[]>({
 });
 ---
 <section id='last-posts'>
-	<div class='container last-posts-container'>
+	<div class='last-posts-container'>
 		<div class='last-posts'>
 			<div class='section-title'>
 				<h2><a href='/blog'>Playful travel planner blog</a></h2>

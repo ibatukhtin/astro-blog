@@ -1,0 +1,17 @@
+---
+import LastPostsCarousel from '../components/LastPostsCarousel';
+
+const { articles } = Astro.props;
+---
+<section id='last-posts'>
+	<div class='last-posts-container'>
+		<div class='last-posts'>
+			<!--<div class='section-title'>-->
+			<!--	<h2><a href='/blog'>Playful travel planner blog</a></h2>-->
+			<!--</div>-->
+			<LastPostsCarousel articles={ articles } client:idle />
+		</div>
+	</div>
+</section>
+
+

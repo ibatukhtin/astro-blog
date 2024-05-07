@@ -1,6 +1,6 @@
 import type Article from "@/interfaces/article.ts";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, } from "@/components/ui/carousel";
-import DateFormatter from "@/components/dateFormatter.tsx";
+import DateFormatter from "@/components/DateFormatter.tsx";
 import '../styles/postPreview.styles.scss';
 
 type Props = {

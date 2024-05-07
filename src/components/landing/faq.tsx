@@ -32,21 +32,19 @@ function Faq() {
 
   return (
     <section id='faq' className='faq'>
-      <div className='container'>
-        <div className='faq-grid'>
-          <div className='faq-title'>
-            FAQs
-          </div>
-          <div className='faq-content'>
-            <Accordion type="single" collapsible className="w-full">
-              { items.map((item) => (
-                <AccordionItem key={ item.value } value={ item.value }>
-                  <AccordionTrigger>{ item.value }</AccordionTrigger>
-                  <AccordionContent className='p-4'>{ item.description }</AccordionContent>
-                </AccordionItem>
-              )) }
-            </Accordion>
-          </div>
+      <div className='faq-grid'>
+        <div className='faq-title'>
+          FAQs
+        </div>
+        <div className='faq-content'>
+          <Accordion type="single" collapsible className="w-full">
+            { items.map((item) => (
+              <AccordionItem key={ item.value } value={ item.value }>
+                <AccordionTrigger>{ item.value }</AccordionTrigger>
+                <AccordionContent className='p-4'>{ item.description }</AccordionContent>
+              </AccordionItem>
+            )) }
+          </Accordion>
         </div>
       </div>
     </section>
