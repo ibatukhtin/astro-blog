@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import preact from "@astrojs/preact";
+import partytown from '@astrojs/partytown';
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 
@@ -9,6 +9,11 @@ export default defineConfig({
     react(),
     tailwind({
       applyBaseStyles: false,
+    }),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
     }),
   ],
   markdown: {
