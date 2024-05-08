@@ -86,12 +86,14 @@ const openGraph = {
 						</div>
 					}
 				</div>
-				<div class="post-aside">
-					<div style={ { height: '4rem' } }></div>
-					<aside class='table-of-content'>
-						<TableOfContent content={ article.attributes.content } client:idle />
-					</aside>
-				</div>
+				{ article.attributes.cover?.data &&
+					<div class="post-aside">
+						<div style={ { height: '4rem' } }></div>
+						<aside class='table-of-content'>
+							<TableOfContent content={ article.attributes.content } client:idle />
+						</aside>
+					</div>
+				}
 			</div>
 			{ related?.length !== 0 &&
 				<section class='related-posts'>
