@@ -4,7 +4,7 @@ function ShowMore() {
   const elRef = useRef<HTMLButtonElement>(null);
 
   const posts = document.querySelectorAll('.blog-list-item');
-  const [visiblePosts, setVisiblePosts] = useState(18);
+  const [visiblePosts, setVisiblePosts] = useState(9);
 
   const showMorePosts = () => {
     posts.forEach((post, index) => {
@@ -25,7 +25,7 @@ function ShowMore() {
   }
 
   const handleClick = () => {
-    setVisiblePosts(visiblePosts + 18);
+    setVisiblePosts(visiblePosts + 9);
   }
 
   showMorePosts();

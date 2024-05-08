@@ -43,7 +43,7 @@ const articles = await fetchApi<Article[]>({
 				{ articles.length &&
 					<ul class='ul-unstyled blog-list'>
 						{ articles?.map((post: Article, index) =>
-							<li class='blog-list-item'>
+							<li class={index < 9 ? 'blog-list-item show' : 'blog-list-item'}>
 								<PostPreview post={ post } loading={index < 2 ? 'preload' : 'lazy'} />
 							</li>
 						) }
