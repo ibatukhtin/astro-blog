@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PostPreview from '../components/PostPreview.astro';
 import fetchApi from '../lib/strapi';
 import type Article from '../interfaces/article';
+import ShowMore from "../components/ShowMore";
 import '../styles/blog-page.styles.scss';
 
 const pageTitle = "Triplay.ai Blog: Travel Tips & More";
@@ -22,52 +23,6 @@ const articles = await fetchApi<Article[]>({
 	wrappedByKey: 'data',
 });
 ---
-
-<script>
-	if(document.readyState === "complete") {
-		// Fully loaded!
-	}
-	else if(document.readyState === "interactive") {
-		const posts = document.querySelectorAll('.blog-list-item');
-		const showMoreButton = document.getElementById('show-more');
-
-		let visiblePosts = 18; // Начальное количество видимых постов
-		showPosts();
-
-		showMoreButton.addEventListener('click', () => {
-			visiblePosts += 18; // Увеличиваем количество видимых постов на 18
-			showPosts();
-		});
-
-		function showPosts() {
-			posts.forEach((post, index) => {
-				if (index < visiblePosts) {
-					post.classList.add('show');
-				} else {
-					post.classList.remove('show');
-				}
-			});
-
-			// Показываем кнопку "Show More", если есть еще посты, которые можно отобразить
-			if (visiblePosts < posts.length) {
-				showMoreButton.style.display = 'block';
-			} else {
-				showMoreButton.style.display = 'none';
-			}
-		}
-	}
-	else {
-		// Loading still in progress.
-		// To wait for it to complete, add "DOMContentLoaded" or "load" listeners.
-		window.addEventListener("DOMContentLoaded", () => {
-			// DOM ready! Images, frames, and other subresources are still downloading.
-		});
-		window.addEventListener("load", () => {
-			// Fully loaded!
-		});
-	}
-
-</script>
 
 <BaseLayout
 	pageTitle={pageTitle}
@@ -94,14 +49,7 @@ const articles = await fetchApi<Article[]>({
 						) }
 					</ul>
 				}
-				<div style={{display: 'flex', justifyContent: 'center'}}>
-					<button
-						id="show-more"
-						class="tp-button-outline"
-					>
-						Show more
-					</button>
-				</div>
+				<ShowMore client:only="react" />
 			</div>
 		</div>
 	</div>
