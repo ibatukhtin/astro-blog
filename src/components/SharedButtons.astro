@@ -1,0 +1,57 @@
+---
+const { post } = Astro.props;
+import Facebook from "@/components/icons/facebook";
+import Twitter from "@/components/icons/twitter";
+import LinkedIn from "@/components/icons/linkedIn";
+import Reddit from "@/components/icons/reddit";
+const {
+	title,
+	description,
+	slug,
+} = post.attributes;
+---
+
+<section class='blog-sharing blog-sharing--compact'>
+	<ul class='ul-unstyled blog-sharing-list'>
+		<li class='blog-sharing-item facebook'>
+			<a
+				href={ `https://www.facebook.com/sharer/sharer.php?u=https://triplay.ai/${ slug }` }
+				target='_blank'
+				rel='noopener noreferrer'
+				aria-label='Share on Facebook'
+			>
+				<Facebook size={ 25 } />
+			</a>
+		</li>
+		<li class='blog-sharing-item twitter'>
+			<a
+				href={ `https://twitter.com/intent/tweet?url=https://triplay.ai/${ slug }/&text=${ encodeURI(title) }` }
+				target='_blank'
+				rel='noopener noreferrer'
+				aria-label='Share on Twitter'
+			>
+				<Twitter size={ 25 } />
+			</a>
+		</li>
+		<li class='blog-sharing-item linkedin'>
+			<a
+				href={ `https://www.linkedin.com/shareArticle?mini=true&url=https://triplay.ai/${ slug }/&title=${ encodeURI(title) }&summary=${ encodeURI(description) }` }
+				target='_blank'
+				rel='noopener noreferrer'
+				aria-label='Share on LinkedIn'
+			>
+				<LinkedIn size={ 25 } />
+			</a>
+		</li>
+		<li class='blog-sharing-item reddit'>
+			<a
+				href={ `https://www.reddit.com/submit?url=https://triplay.ai/${ slug }/&title=${ encodeURI(title) }` }
+				target='_blank'
+				rel='noopener noreferrer'
+				aria-label='Share on Reddit'
+			>
+				<Reddit size={ 25 } />
+			</a>
+		</li>
+	</ul>
+</section>

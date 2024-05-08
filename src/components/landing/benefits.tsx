@@ -6,7 +6,7 @@ function Benefits() {
       <ul className='ul-unstyled benefits__list'>
         {
           items.filter((item, index) => index < 3)
-            .map((filteredItem) => Item(filteredItem))
+            .map((filteredItem, index) => Item(filteredItem, index))
         }
 
         <li className='instant'>
@@ -26,16 +26,16 @@ function Benefits() {
 
         {
           items.filter((item, index) => index > 2)
-            .map((filteredItem) => Item(filteredItem))
+            .map((filteredItem, index) => Item(filteredItem, index))
         }
       </ul>
     </section>
   )
 }
 
-const Item = (item: any) => {
+const Item = (item: any, index: number) => {
   return (
-    <li className='benefits__item'>
+    <li className='benefits__item' key={index}>
       <div className='row'>
         <div className={ `col ${ item.imageFirst ? 'order-2' : 'order-1' }` }>
           <div className='benefits__content'>

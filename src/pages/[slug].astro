@@ -7,11 +7,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Author from '../components/Author.astro';
 import PostHeader from '../components/PostHeader.astro';
 import RelatedPosts from "../components/RelatedPosts.astro";
-import TableOfContent from "../components/tableOfContent";
+import TableOfContent from "../components/TableOfContent";
+import ShareButtons from "../components/SharedButtons.astro"
 
 export async function getStaticPaths() {
   const articles = await fetchApi<Article[]>({
-		endpoint: 'articles?sort[0]=createdAt:desc&populate[category][fields][0]=name&populate[category][fields][1]=slug&populate[tags][fields][0]=name&populate[tags][fields][1]=slug&populate[tags][fields][2]=color&populate[cover][fields][0]=url&populate[cover][fields][1]=formats&populate[author][fields][0]=name&populate[author][fields][1]=slug&populate[author][fields][2]=caption&populate[author][fields][3]=caption_line_2&populate[author][fields][4]=link&populate[author][populate][avatar][fields][0]=url&populate[relatedArticles][fields][0]=title&populate[relatedArticles][fields][1]=slug&populate[relatedArticles][fields][2]=description&populate[relatedArticles][fields][3]=url&populate[relatedArticles][fields][4]=publishedAt&populate[relatedArticles][fields][5]=static_date&populate[relatedArticles][fields][6]=static_img_url&populate[relatedArticles][populate][cover][fields][0]=url&populate[relatedArticles][populate][cover][fields][1]=formats&populate[seo][populate]=*&pagination[page]=1&pagination[pageSize]=1000',
+    endpoint: 'articles?sort[0]=createdAt:desc&populate[category][fields][0]=name&populate[category][fields][1]=slug&populate[tags][fields][0]=name&populate[tags][fields][1]=slug&populate[tags][fields][2]=color&populate[cover][fields][0]=url&populate[cover][fields][1]=formats&populate[author][fields][0]=name&populate[author][fields][1]=slug&populate[author][fields][2]=caption&populate[author][fields][3]=caption_line_2&populate[author][fields][4]=link&populate[author][populate][avatar][fields][0]=url&populate[relatedArticles][fields][0]=title&populate[relatedArticles][fields][1]=slug&populate[relatedArticles][fields][2]=description&populate[relatedArticles][fields][3]=url&populate[relatedArticles][fields][4]=publishedAt&populate[relatedArticles][fields][5]=static_date&populate[relatedArticles][fields][6]=static_img_url&populate[relatedArticles][populate][cover][fields][0]=url&populate[relatedArticles][populate][cover][fields][1]=formats&populate[seo][populate]=*&pagination[page]=1&pagination[pageSize]=1000',
     wrappedByKey: 'data',
   });
 
@@ -25,81 +26,90 @@ const article = Astro.props;
 const metadata = article?.attributes.seo;
 const related = article?.attributes.relatedArticles?.data;
 const openGraph = {
-	basic: {
-		title: metadata?.metaTitle ? metadata?.metaTitle : article.attributes.title,
-		type: "article",
-		image: 'https://triplay.ai/triplay-logo.svg',
-		authors: article?.attributes.author.data?.attributes.name,
-		section: article?.attributes.category.data?.attributes.name,
-		tags: article?.attributes.tags?.data.map(tag => tag.attributes.name),
-		description: metadata?.metaDescription,
-	}
+  basic: {
+    title: metadata?.metaTitle ? metadata?.metaTitle : article.attributes.title,
+    type: "article",
+    image: 'https://triplay.ai/triplay-logo.svg',
+    authors: article?.attributes.author.data?.attributes.name,
+    section: article?.attributes.category.data?.attributes.name,
+    tags: article?.attributes.tags?.data.map(tag => tag.attributes.name),
+    description: metadata?.metaDescription,
+  }
 };
 ---
 <BaseLayout
-	pageTitle={article?.attributes.title}
-	description={metadata?.metaDescription}
-	keywords={metadata?.metaKeywords}
-	openGraph={openGraph}
+	pageTitle={ article?.attributes.title }
+	description={ metadata?.metaDescription }
+	keywords={ metadata?.metaKeywords }
+	openGraph={ openGraph }
 >
-	{ article &&
-		<div class="blog-post">
-			<div class="post-grid">
-				<div class="post-content">
-					<article>
-						<nav class='breadcrumbs' aria-label='Breadcrumb'>
-							<ol class='ul-unstyled breadcrumbs-list' role='list'>
-								<li class='breadcrumbs-item'><a href='/'>Main</a></li>
-								<li class='breadcrumbs-item'><a href='/blog'>Blog</a></li>
-								<li class='breadcrumbs-item'>{ article.attributes.title }</li>
-							</ol>
-						</nav>
+  { article &&
+	  <div class="blog-post">
+		  <div class="post-grid">
+			  <div class="post-content">
+				  <article>
+					  <nav class='breadcrumbs' aria-label='Breadcrumb'>
+						  <ol class='ul-unstyled breadcrumbs-list' role='list'>
+							  <li class='breadcrumbs-item'><a href='/'>Main</a></li>
+							  <li class='breadcrumbs-item'><a href='/blog'>Blog</a></li>
+							  <li class='breadcrumbs-item'>{ article.attributes.title }</li>
+						  </ol>
+					  </nav>
 
-						<section class="blog-content">
-							<PostHeader post={ article } />
-							<div class="blog-body">
-								<ReactMarkdown content={ article.attributes.content } />
-							</div>
-						</section>
+					  <section class="blog-content">
+						  <PostHeader post={ article } />
+						  <div class="blog-body">
+							  <ReactMarkdown content={ article.attributes.content } />
+						  </div>
+					  </section>
 
 						{ article.attributes.author.data &&
 							<Author author={ article.attributes.author.data } />
 						}
-					</article>
 
-					{ article.attributes.tags &&
-						<div class='blog-tags'>
-							<ul class='ul-unstyled blog-tags-list'>
-								{ article.attributes.tags?.data.map(tag =>
-									<li class='blog-tags-item'>
-										<a
-											href={ `/tags/${ tag.attributes.slug }` }
-											style={ { borderColor: tag.attributes.color } }
-										>
-											<span style={ { color: tag.attributes.color } }>
-												{ tag.attributes.name }
-											</span>
-										</a>
-									</li>
-								) }
-							</ul>
-						</div>
-					}
-				</div>
+						{ article.attributes.tags &&
+							<div class='blog-tags'>
+								<ul class='ul-unstyled blog-tags-list'>
+									{ article.attributes.tags?.data.map(tag =>
+										<li class='blog-tags-item'>
+											<a
+												href={ `/tags/${ tag.attributes.slug }` }
+												style={ { borderColor: tag.attributes.color } }
+											>
+										<span style={ { color: tag.attributes.color } }>
+											{ tag.attributes.name }
+										</span>
+											</a>
+										</li>
+									)
+									}
+								</ul>
+							</div>
+						}
+
+						<section class='blog-sharing blog-sharing__mobile'>
+							<ShareButtons post={ article } />
+						</section>
+				  </article>
+			  </div>
 				{ article.attributes.cover?.data &&
 					<div class="post-aside">
 						<div style={ { height: '4rem' } }></div>
 						<aside class='table-of-content'>
 							<TableOfContent content={ article.attributes.content } client:idle />
+							<div style="margin-top: 1rem">
+								<ShareButtons post={ article } />
+							</div>
 						</aside>
 					</div>
 				}
-			</div>
+		  </div>
 			{ related?.length !== 0 &&
 				<section class='related-posts'>
 					<h2>Related posts:</h2>
 					<RelatedPosts articles={ related } />
 				</section>
 			}
-		</div> }
+	  </div>
+  }
 </BaseLayout>
