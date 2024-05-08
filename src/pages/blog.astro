@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostPreview from '../components/PostPreview.astro';
+import PostGrid from '../components/postsGrid';
 import fetchApi from '../lib/strapi';
 import type Article from '../interfaces/article';
 import '../styles/blog-page.styles.scss';
@@ -40,13 +41,7 @@ const articles = await fetchApi<Article[]>({
 			<div class="posts-wrapper">
 				<h1><a href='/blog/all-posts'>Blog</a></h1>
 				{ articles.length &&
-					<ul class='ul-unstyled blog-list'>
-						{ articles?.map((post: Article, index) =>
-							<li class='blog-list-item'>
-								<PostPreview post={ post } loading={index < 2 ? 'preload' : 'lazy'} />
-							</li>
-						) }
-					</ul>
+					<PostGrid articles={ articles } client:idle />
 				}
 			</div>
 		</div>
