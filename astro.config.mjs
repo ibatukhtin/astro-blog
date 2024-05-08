@@ -19,5 +19,5 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [],
     rehypePlugins: []
-  }
+  },
 });

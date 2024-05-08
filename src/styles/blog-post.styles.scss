@@ -153,11 +153,23 @@
   .table-of-content {
     position: sticky;
     top: px-to-rem(70);
+    &__wrapper {
+      border: 1px solid var(--Light-Grey);
+      border-radius: 1rem;
+      padding: 1rem;
+    }
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
     @media (max-width: 46rem) {
       top: px-to-rem(65);
     }
     z-index: 99;
     .table-of-content__scroll {
+      overflow-y: auto;
       max-height: calc(100dvh - 14rem);
       @media (max-width: 46rem) {
         max-height: calc(100dvh - 9.8rem);
