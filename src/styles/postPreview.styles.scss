@@ -1,4 +1,8 @@
 .blog-list-item {
+  display: none;
+  &.show {
+    display: block;
+  }
   height: 100%;
   a {
     color: #555;

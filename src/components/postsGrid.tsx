@@ -1,5 +1,4 @@
 import type Article from "@/interfaces/article.ts";
-import '../styles/postPreview.styles.scss';
 import { useStore } from '@nanostores/react';
 import { showPosts, morePosts } from '@/store/store';
 import PostPreview from '@/components/postPreview.tsx';
