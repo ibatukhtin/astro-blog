@@ -46,7 +46,8 @@ const articles = await fetchApi<Article[]>({
 								<PostPreview post={ post } loading={index < 2 ? 'preload' : 'lazy'} />
 							</li>
 						) }
-					</ul> }
+					</ul>
+				}
 			</div>
 		</div>
 	</div>
