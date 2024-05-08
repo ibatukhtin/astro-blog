@@ -420,14 +420,14 @@
       gap: px-to-rem(6);
 
       div {
-        margin-bottom: px-to-rem(12);
+        margin-bottom: px-to-rem(6);
       }
 
       @media (max-width: 48rem) {
         justify-content: center;
         width: 100%;
         div {
-          margin-bottom: px-to-rem(11);
+          margin-bottom: px-to-rem(6);
         }
         img {
           width: auto;

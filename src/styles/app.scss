@@ -64,6 +64,13 @@ body {
   color: var(--Black);
 }
 
+h1, h2, h3 {
+  font-weight: 700;
+  @media (max-width: 62rem) {
+    font-weight: 600;
+  }
+}
+
 //App Shell
 .mantine-AppShell-root {
   min-height: 100vh;
