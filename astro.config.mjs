@@ -3,14 +3,12 @@ import partytown from '@astrojs/partytown';
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 
-import preact from "@astrojs/preact";
+// import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [preact({
-    compat: true
-  }),
-  // react(),
+  integrations: [
+  react(),
   tailwind({
     applyBaseStyles: false
   }), partytown({
