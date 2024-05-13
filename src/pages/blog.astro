@@ -1,10 +1,8 @@
 ---
 import '../styles/blog-page.styles.scss';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PostPreview from '../components/PostPreview.astro';
 import fetchApi from '../lib/strapi';
 import type Article from '../interfaces/article';
-import ShowMore from "../components/ShowMore";
 // import PostsGrid from "../components/PostsGrid.astro";
 import PostsGrid from "../components/postsGrid";
 
@@ -42,7 +40,7 @@ const articles = await fetchApi<Article[]>({
 		{ articles.length &&
 			<div class="blog-wrapper">
 				<!--<PostsGrid articles={ articles } />-->
-				<PostsGrid articles={ articles } client:only="react" />
+				<PostsGrid articles={ articles } client:load />
 			</div> }
 	</div>
 </BaseLayout>

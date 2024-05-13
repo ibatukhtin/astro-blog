@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
+    "skipLibCheck": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "strictNullChecks": true,
@@ -9,7 +10,11 @@
     "paths": {
       "@/*": [
         "./src/*"
-      ]
+      ],
+      "react": ["./node_modules/preact/compat/"],
+      "react/jsx-runtime": ["./node_modules/preact/jsx-runtime"],
+      "react-dom": ["./node_modules/preact/compat/"],
+      "react-dom/*": ["./node_modules/preact/compat/*"]
     }
   }
 }
