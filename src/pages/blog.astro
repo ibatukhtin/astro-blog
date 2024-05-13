@@ -1,10 +1,12 @@
 ---
+import '../styles/blog-page.styles.scss';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostPreview from '../components/PostPreview.astro';
 import fetchApi from '../lib/strapi';
 import type Article from '../interfaces/article';
 import ShowMore from "../components/ShowMore";
-import '../styles/blog-page.styles.scss';
+// import PostsGrid from "../components/PostsGrid.astro";
+import PostsGrid from "../components/postsGrid";
 
 const pageTitle = "Triplay.ai Blog: Travel Tips & More";
 const description = 'Triplay.ai\'s Blog offers a wealth of travel knowledge. Discover tips, tricks, and tales from around the globe.';
@@ -37,20 +39,10 @@ const articles = await fetchApi<Article[]>({
 				<li class='breadcrumbs-item'>Blog</li>
 			</ol>
 		</nav>
-		<div class="blog-wrapper">
-			<div class="posts-wrapper">
-				<h1><a href='/blog/all-posts'>Blog</a></h1>
-				{ articles.length &&
-					<ul class='ul-unstyled blog-list'>
-						{ articles?.map((post: Article, index) =>
-							<li class={index < 9 ? 'blog-list-item show' : 'blog-list-item'}>
-								<PostPreview post={ post } loading={index < 2 ? 'preload' : 'lazy'} />
-							</li>
-						) }
-					</ul>
-				}
-				<ShowMore client:only="react" />
-			</div>
-		</div>
+		{ articles.length &&
+			<div class="blog-wrapper">
+				<!--<PostsGrid articles={ articles } />-->
+				<PostsGrid articles={ articles } client:only="react" />
+			</div> }
 	</div>
 </BaseLayout>

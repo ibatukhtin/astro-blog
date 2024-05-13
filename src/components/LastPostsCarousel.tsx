@@ -16,7 +16,7 @@ export default function LastPostsCarousel({ articles }: Props) {
             <a
               href={ post.attributes.static_date ? `/blog/${ post.attributes.url }` : `/${ post.attributes.url }` }
               className="blog-list-item__link">
-              <div className="blog-list-item__content">
+              <div>
                 <div className="blog-list-item__image-wrapper">
                   { post.attributes.static_img_url &&
                     <img

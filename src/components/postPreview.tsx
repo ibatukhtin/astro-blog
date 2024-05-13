@@ -20,7 +20,7 @@ export default function Posts({post, loading}: Props) {
 
 	return (
 		<a href={ static_date ? `/blog/${ url }` : `/${ url }` } className="blog-list-item__link">
-			<div className="blog-list-item__content">
+			<div>
 				<div className="blog-list-item__image-wrapper">
 					{ static_img_url &&
 						<img
