@@ -96,7 +96,7 @@ const openGraph = {
 					<div class="post-aside">
 						<div style={ { height: '4rem' } }></div>
 						<aside class='table-of-content'>
-							<TableOfContent content={ article.attributes.content } client:idle />
+							<TableOfContent content={ article.attributes.content } client:load />
 							<div style="margin-top: 1rem">
 								<ShareButtons post={ article } />
 							</div>
