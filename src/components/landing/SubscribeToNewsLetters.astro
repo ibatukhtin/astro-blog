@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import Letters from '../../../public/icons/letters.svg';
+import FeedbackFormFooter from './feedback-form-footer'
+---
+
+<section id='subscribe'>
+	<div class='footer__grid-subscribe'>
+		<div class='footer__grid-subscribe-inner'>
+			<div class='subscribe-header'>
+				<div class='subscribe-header__text'>Subscribe to our Newsletters!</div>
+				<Image
+					src={ Letters }
+					width={ 54 }
+					height={ 54 }
+					alt='Subscribe to our Newsletters!'
+				/>
+			</div>
+			<FeedbackFormFooter client:idle />
+		</div>
+	</div>
+</section>

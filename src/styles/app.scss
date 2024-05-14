@@ -1,4 +1,5 @@
 @import './app-global';
+@import './components/input';
 @import './components/buttons';
 @import './components/accordion';
 
@@ -6,6 +7,10 @@
 *::after,
 *::before {
   box-sizing: border-box;
+}
+
+*:focus-visible {
+  outline: 0 none;
 }
 
 :root {

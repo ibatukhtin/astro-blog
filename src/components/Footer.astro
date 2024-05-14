@@ -3,7 +3,9 @@ import '../styles/footer.styles.scss';
 import TriPlayLogo from '../../public/images/triplay-logo.svg';
 import VallexLogo from '../../public/images/vallex-logo-grey.svg';
 import { Image } from 'astro:assets';
+import Letters from '../../public/icons/letters.svg';
 import FooterInfo from '../components/FooterInfo.astro';
+import FeedbackFormFooter from '../components/landing/feedback-form-footer';
 ---
 
 <footer class="footer">
@@ -25,7 +27,16 @@ import FooterInfo from '../components/FooterInfo.astro';
 
 		<div class="footer__grid">
 			<div class="footer__grid-subscribe">
-				<div class='subscribe-header__text'>Subscribe to our Newsletters!</div>
+				<div class="subscribe-header">
+					<div class='subscribe-header__text'>Subscribe to our Newsletters!</div>
+					<Image
+						src={ Letters }
+						width={ 54 }
+						height={ 54 }
+						alt='Subscribe to our Newsletters!'
+					/>
+				</div>
+				<FeedbackFormFooter client:idle />
 			</div>
 			<FooterInfo />
 		</div>
