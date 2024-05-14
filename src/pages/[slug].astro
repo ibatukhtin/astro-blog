@@ -2,13 +2,13 @@
 import '../styles/blog-post.styles.scss';
 import fetchApi from '../lib/strapi';
 import type Article from '../interfaces/article';
-import ReactMarkdown from '../components/ReactMarkdown';
+import ReactMarkdown from '../components/blog/ReactMarkdown';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Author from '../components/Author.astro';
-import PostHeader from '../components/PostHeader.astro';
-import RelatedPosts from "../components/RelatedPosts.astro";
-import TableOfContent from "../components/TableOfContent";
-import ShareButtons from "../components/SharedButtons.astro"
+import Author from '../components/blog/Author.astro';
+import PostHeader from '../components/blog/PostHeader.astro';
+import RelatedPosts from "../components/blog/RelatedPosts.astro";
+import TableOfContent from "../components/blog/TableOfContent";
+import ShareButtons from "../components/blog/SharedButtons.astro"
 
 export async function getStaticPaths() {
   const articles = await fetchApi<Article[]>({

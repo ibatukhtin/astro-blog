@@ -149,3 +149,12 @@
     color: var(--tp-primary-color);
   }
 }
+
+.tp-button {
+  display: flex;
+  align-items: center;
+  height: px-to-rem(36);
+  padding: 0 1.5rem;
+  font-size: px-to-rem(14);
+  line-height: 1;
+}

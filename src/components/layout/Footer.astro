@@ -1,18 +1,19 @@
 ---
-import '../styles/footer.styles.scss';
-import TriPlayLogo from '../../public/images/triplay-logo.svg';
-import VallexLogo from '../../public/images/vallex-logo-grey.svg';
+import '../../styles/footer.styles.scss';
+import TriPlayLogo from '../../../public/images/triplay-logo.svg';
+import VallexLogo from '../../../public/images/vallex-logo-grey.svg';
 import { Image } from 'astro:assets';
-import Letters from '../../public/icons/letters.svg';
-import FooterInfo from '../components/FooterInfo.astro';
-import FeedbackFormFooter from '../components/landing/feedback-form-footer';
+import Letters from '../../../public/icons/letters.svg';
+import FooterInfo from './FooterInfo.astro';
+import FeedbackFormFooter from '../landing/feedback-form-footer';
+import Cookie from './cookie';
 ---
 
 <footer class="footer">
 	<div class="footer__inner">
 		<div class="footer__header">
 			<a
-				href="/"
+				href="/public"
 				aria-label='TriPlay'
 				style={ { display: 'flex', alignItems: 'center' } }>
 				<Image
@@ -62,3 +63,5 @@ import FeedbackFormFooter from '../components/landing/feedback-form-footer';
 		</div>
 	</div>
 </footer>
+
+<Cookie client:idle />

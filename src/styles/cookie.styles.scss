@@ -1,0 +1,39 @@
+.cookie-wrapper {
+  position: fixed;
+  display: none;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f1f3f5;
+  color: #4F4F4F;
+  padding: 1rem;
+  z-index: 999;
+}
+
+.cookie-container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.cookie-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 42rem) {
+  .cookie-wrapper {
+    padding: 0.5rem 0.1rem;
+  }
+  .cookie-container {
+    flex-direction: column;
+    max-width: 80%;
+    text-align: center;
+    font-size: 0.65rem;
+  }
+}

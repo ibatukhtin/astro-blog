@@ -1,6 +1,6 @@
-import DateFormatter from "./DateFormatter";
-import '../styles/postPreview.styles.scss';
-import type Article from "../interfaces/article";
+import DateFormatter from "./DateFormatter.tsx";
+import '../../styles/postPreview.styles.scss';
+import type Article from "../../interfaces/article.ts";
 
 type Props = {
 	post: Article;

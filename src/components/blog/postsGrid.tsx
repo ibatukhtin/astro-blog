@@ -1,5 +1,5 @@
 import type Article from "@/interfaces/article.ts";
-import PostPreview from '@/components/postPreview.tsx';
+import PostPreview from '@/components/blog/postPreview.tsx';
 import { useState } from "react";
 
 type Props = {
