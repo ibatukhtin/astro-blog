@@ -7,6 +7,7 @@ import Letters from '../../../public/icons/letters.svg';
 import FooterInfo from './FooterInfo.astro';
 import FeedbackFormFooter from '../landing/feedback-form-footer';
 import Cookie from './cookie';
+const year = new Date().getFullYear();
 ---
 
 <footer class="footer">
@@ -45,7 +46,7 @@ import Cookie from './cookie';
 		<div class='footer__bottom'>
 			<div class='footer__bottom-divider'></div>
 			<div class='footer__bottom-wrapper'>
-				<div>© 2024 Vallex GmbH</div>
+				<div>© {year} Vallex GmbH</div>
 				<div class='footer__bottom-vallex'>
 					<div>Powered by</div>
 					<a href='https://vallex.io' target='_blank'>
