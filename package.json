@@ -1,7 +1,7 @@
 {
-  "name": "astro-blog",
+  "name": "triplay-astro",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.24",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -30,7 +30,6 @@
     "embla-carousel-react": "^8.0.4",
     "lucide-react": "^0.378.0",
     "marked": "^12.0.2",
-    "nanostores": "^0.10.3",
     "preact": "^10.21.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
