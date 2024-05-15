@@ -1,4 +1,4 @@
-@import './app-global';
+@import './utils';
 
 @mixin dash-line {
   width: 100%;
@@ -121,9 +121,10 @@
         font-size: 24px;
         font-weight: 600;
         white-space: nowrap;
-        min-width: 360px;
+        min-width: 390px;
         @media (max-width: 80rem) {
           font-size: 24px;
+          min-width: 300px;
           img {
             width: px-to-rem(40);
             height: px-to-rem(40);

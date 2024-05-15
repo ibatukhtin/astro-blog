@@ -17,7 +17,7 @@ function Benefits() {
               href='/create-trip'
               id='createTrip3'
             >
-                <span className='mantine-Button-label'>
+              <span className='mantine-Button-label'>
                 Create trip
               </span>
             </a>

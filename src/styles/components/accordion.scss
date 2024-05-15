@@ -9,5 +9,21 @@
   }
   button {
     padding: 1rem;
+    font-size: 1rem;
+    font-weight: 800;
   }
+}
+
+.faq-content {
+  h3 {
+    margin: 1rem 0;
+  }
+  .text-sm {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+.disabled\:opacity-50:disabled {
+  display: none;
 }

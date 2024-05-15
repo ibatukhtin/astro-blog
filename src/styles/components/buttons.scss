@@ -1,4 +1,38 @@
 // Buttons
+
+@mixin button {
+  display: flex;
+  align-items: center;
+  height: px-to-rem(36);
+  padding: 0 1.5rem;
+  font-size: px-to-rem(14);
+  font-weight: 600;
+  line-height: 1;
+  border-radius: px-to-rem(20);
+  text-decoration: none;
+}
+
+.tp-button-outline {
+  @include button;
+  color: var(--Black, #2C2C2C);
+  background: var(--Text-White, #FFF);
+  border: 1px solid var(--Pink, #FB8CB4);
+  &:hover {
+    color: var(--Black, #2C2C2C);
+    background: var(--Button-outline-hover);
+  }
+}
+
+.tp-button-filled {
+  @include button;
+  color: var(--Text-White, #FFF);
+  background: var(--Pink-Accent, #F46C9E);
+  border: 1px solid var(--Pink, #FB8CB4);
+  &:hover {
+    background: var(--Button-filled-hover);
+  }
+}
+
 .button-with-arrow {
   .mantine-Button-label {
     position: relative;
@@ -38,123 +72,15 @@
       }
     }
   }
-}
-.button-with-arrow:hover {
-  .mantine-Button-label {
-    &:after {
-      transform: translateX(0);
-      opacity: 1;
+  &:hover {
+    .mantine-Button-label {
+      &:after {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    .mantine-Button-label {
+      transform: translateX(-0.4rem);
     }
   }
-  .mantine-Button-label {
-    transform: translateX(-0.4rem);
-  }
-}
-
-.link-with-border {
-  display: inline-block;
-  border: 2px solid var(--tp-primary-color);
-  color: var(--tp-primary-color);
-  font-weight: 600;
-  border-radius: 0.5rem;
-  padding: 0.7rem 1.4rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border 0.3s;
-  &:hover {
-    background-color: var(--tp-secondary-color);
-    border: 2px solid var(--tp-secondary-color);
-    color: white;
-  }
-}
-
-.button-outline {
-  flex-shrink: 0;
-  padding: 0.5rem;
-  line-height: 1;
-  color: var(--tp-primary-color);
-  border: 1px solid var(--tp-primary-color);
-  background-color: transparent;
-  transition: color 0.3s, border 0.3s, background-color 0.3s;
-  &--black {
-    color: black;
-  }
-  &:hover {
-    color: white;
-    border: 1px solid var(--tp-secondary-color);
-    background-color: var(--tp-secondary-color);
-  }
-}
-
-.tp-button-white-shadow {
-  padding: 0 0.7rem;
-  color: var(--Black, #2C2C2C);
-  border: none;
-  background: var(--Text-White, #FFF);
-  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.08);
-  font-style: normal;
-  font-weight: 500;
-  &:hover {
-    color: var(--Black, #2C2C2C);
-    background: rgb(255, 208, 226, 0.1);
-  }
-}
-
-.tp-button-outline {
-  color: var(--Black, #2C2C2C);
-  border-radius: px-to-rem(20);
-  border: 1px solid var(--Pink, #FB8CB4);
-  background: var(--Text-White, #FFF);
-  padding: 4px 16px;
-  &:hover {
-    color: var(--Black, #2C2C2C);
-    border: 1px solid var(--Pink-Accent, #F46C9E);
-    background: var(--BG-Purple, #F7F1F8);
-  }
-}
-
-.tp-button-filled {
-  border-radius: px-to-rem(20);
-  color: var(--Text-White, #FFF);
-  background: var(--Pink-Accent, #F46C9E);
-  text-decoration: none;
-  .mantine-Button-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  &:hover {
-    background: var(--Pink-Accent, #F46C9E);
-  }
-}
-
-.tp-button-filled__small {
-  @extend .tp-button-filled;
-  height: px-to-rem(36);
-}
-
-.button-black-label {
-  .mantine-Button-label {
-    color: #2C2C2C;
-  }
-}
-
-.button-link-type {
-  background-color: transparent;
-  color: #868E96;
-  transition: background-color 0.3s, color 0.3s;
-
-  &:hover {
-    background-color: transparent;
-    color: var(--tp-primary-color);
-  }
-}
-
-.tp-button {
-  display: flex;
-  align-items: center;
-  height: px-to-rem(36);
-  padding: 0 1.5rem;
-  font-size: px-to-rem(14);
-  line-height: 1;
 }

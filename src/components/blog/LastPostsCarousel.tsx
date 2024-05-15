@@ -54,14 +54,26 @@ export default function LastPostsCarousel({ articles }: Props) {
                   <path d='M8 15h2v2h-2z' />
                 </svg>
                 <span>
-                    { <DateFormatter dateString={
-                      post.attributes.static_date ? post.attributes.static_date : post.attributes.publishedAt
-                    } /> }
+                  { <DateFormatter dateString={
+                    post.attributes.static_date ? post.attributes.static_date : post.attributes.publishedAt
+                  } /> }
                   </span>
               </div>
             </a>
           </CarouselItem>
         ) }
+        <CarouselItem className="blog-list-item show sm:basis-1/2 md:basis-1/2 lg:basis-1/3">
+          <a
+            className='blog-list-item__link'
+            href='/blog'
+          >
+            <div className="flex justify-center w-full h-full items-center">
+              <button className='tp-button-outline'>
+                Show All
+              </button>
+            </div>
+          </a>
+        </CarouselItem>
       </CarouselContent>
       <CarouselPrevious className='w-12 h-12' style={ { left: '-0.5rem' } } />
       <CarouselNext className='w-12 h-12' style={ { right: '-0.5rem' } } />
