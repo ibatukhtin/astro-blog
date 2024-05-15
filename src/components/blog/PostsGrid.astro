@@ -6,8 +6,7 @@ const { articles } = Astro.props;
 
 ---
 
-<div class="posts-wrapper">
-	<h1><a href='/blog/all-posts'>Blog</a></h1>
+<div>
 	{ articles.length &&
 		<ul class='ul-unstyled blog-list'>
 			{ articles?.map((post: Article, index) =>

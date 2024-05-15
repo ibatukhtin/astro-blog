@@ -1,0 +1,9 @@
+---
+import '../../styles/blog-page.styles.scss';
+import PostsGrid from "../../components/blog/PostsGrid.astro";
+const { articles } = Astro.props;
+---
+
+<div class="blog-wrapper">
+	<PostsGrid articles={ articles } />
+</div>

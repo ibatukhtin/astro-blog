@@ -1,0 +1,64 @@
+---
+import '../../styles/blog-page.styles.scss';
+import fetchApi from '../../lib/strapi';
+import type Article from '../../interfaces/article';
+import type Category from '../../interfaces/article';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostsGrid from "../../components/blog/PostsGrid.astro";
+
+export async function getStaticPaths() {
+	const categories: Category[] = await fetchApi<Category[]>({
+		endpoint: 'categories?populate[fields][0]=name&populate[fields][1]=seo_text&populate[seo][populate]=*&populate[avatar][fields][0]=url',
+		wrappedByKey: 'data',
+	});
+	return categories.map((category) => ({
+		params: { slug: category.attributes.slug },
+		props: category,
+	}));
+}
+const { slug } = Astro.params;
+type Props = Category;
+const category = Astro.props;
+const metadata = category?.attributes.seo;
+const openGraph = {
+	basic: {
+		title: metadata?.metaTitle
+			? `${ metadata.metaTitle } - Triplay.ai Best Playful AI Travel Planning`
+			: `${ category.attributes.name } - Triplay.ai Best Playful AI Travel Planning`,
+		type: "website",
+		image: 'https://triplay.ai/triplay-logo.svg',
+		description: metadata?.metaDescription,
+	}
+};
+const articles = await fetchApi<Article[]>({
+	endpoint: `articles?populate[cover][populate]=true
+	&sort[0]=createdAt:desc&pagination[page]=1
+	&pagination[pageSize]=1000
+	&filters[category][slug]=${category.attributes.slug}`,
+	wrappedByKey: 'data',
+});
+---
+<BaseLayout
+	pageTitle={ category?.attributes.name }
+	description={ metadata?.metaDescription }
+	keywords={ metadata?.metaKeywords }
+	openGraph={ openGraph }
+>
+	<div class="blog-page">
+		<nav class='breadcrumbs' aria-label='Breadcrumb'>
+			<ol class='ul-unstyled breadcrumbs-list' role='list'>
+				<li class='breadcrumbs-item'><a href='/'>Main</a></li>
+				<li class='breadcrumbs-item'>Categories</li>
+				<li class='breadcrumbs-item'>{category.attributes.name}</li>
+			</ol>
+		</nav>
+		<div class="blog-wrapper">
+			<div class="posts-wrapper">
+				<h1>{category.attributes.name}</h1>
+				{ articles.length &&
+					<PostsGrid articles={ articles } />
+				}
+			</div>
+		</div>
+	</div>
+</BaseLayout>
