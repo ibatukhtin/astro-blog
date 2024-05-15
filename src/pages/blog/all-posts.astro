@@ -1,9 +1,9 @@
 ---
-import '../styles/blog-page.styles.scss';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import fetchApi from '../lib/strapi';
-import type Article from '../interfaces/article';
-import PostsGrid from "../components/blog/PostsGrid.astro";
+import '../../styles/blog-page.styles.scss';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import fetchApi from '../../lib/strapi';
+import type Article from '../../interfaces/article';
+import PostsGrid from "../../components/blog/PostsGrid.astro";
 
 const pageTitle = "Triplay.ai Blog: Travel Tips & More";
 const description = 'Triplay.ai\'s Blog offers a wealth of travel knowledge. Discover tips, tricks, and tales from around the globe.';
@@ -32,15 +32,25 @@ const articles = await fetchApi<Article[]>({
 	<div class="blog-page">
 		<nav class='breadcrumbs' aria-label='Breadcrumb'>
 			<ol class='ul-unstyled breadcrumbs-list' role='list'>
-				<li class='breadcrumbs-item'><a href='/'>Main</a></li>
-				<li class='breadcrumbs-item'>Blog</li>
+				<li class='breadcrumbs-item'><a href='/public'>Main</a></li>
+				<li class='breadcrumbs-item'><a href='/blog'>Blog</a></li>
+				<li class='breadcrumbs-item'>All Posts</li>
 			</ol>
 		</nav>
 		<div class="blog-wrapper">
 			<div class="posts-wrapper">
-				<h1><a href='/blog/all-posts'>Blog</a></h1>
+				<h1>All Posts</h1>
 				{ articles.length &&
-					<PostsGrid articles={ articles } />
+					<ul class='ul-unstyled blog-list blog-list-all'>
+						{ articles.map((article: Article) =>
+							<li class='blog-list-item'>
+								<a
+									href={ `/blog/${ article.attributes.url }` }>
+									{ article.attributes.title }
+								</a>
+							</li>
+						) }
+					</ul>
 				}
 			</div>
 		</div>

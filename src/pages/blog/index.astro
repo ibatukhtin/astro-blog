@@ -1,0 +1,48 @@
+---
+import '../../styles/blog-page.styles.scss';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import fetchApi from '../../lib/strapi';
+import type Article from '../../interfaces/article';
+import PostsGrid from "../../components/blog/PostsGrid.astro";
+
+const pageTitle = "Triplay.ai Blog: Travel Tips & More";
+const description = 'Triplay.ai\'s Blog offers a wealth of travel knowledge. Discover tips, tricks, and tales from around the globe.';
+const keywords = 'Blog, personal information, data collection, data security, communication, website improvement, service providers, legal reasons, business transfers';
+const openGraph = {
+  basic: {
+    type: 'website',
+    title: 'Blog - Triplay.ai Best Playful AI Travel Planning',
+    description: 'Stay updated with the latest travel trends, tips, and insights from our AI-driven blog.',
+    image: "https://triplay.ai/triplay-logo.svg",
+  }
+};
+
+const articles = await fetchApi<Article[]>({
+  endpoint: 'articles?populate[cover][populate]=true&sort[0]=createdAt:desc&pagination[page]=1&pagination[pageSize]=1000',
+  wrappedByKey: 'data',
+});
+---
+
+<BaseLayout
+	pageTitle={ pageTitle }
+	description={ description }
+	keywords={ keywords }
+	openGraph={ openGraph }
+>
+	<div class="blog-page">
+		<nav class='breadcrumbs' aria-label='Breadcrumb'>
+			<ol class='ul-unstyled breadcrumbs-list' role='list'>
+				<li class='breadcrumbs-item'><a href='/public'>Main</a></li>
+				<li class='breadcrumbs-item'>Blog</li>
+			</ol>
+		</nav>
+		<div class="blog-wrapper">
+			<div class="posts-wrapper">
+				<h1><a href='/blog/all-posts'>Blog</a></h1>
+				{ articles.length &&
+					<PostsGrid articles={ articles } />
+				}
+			</div>
+		</div>
+	</div>
+</BaseLayout>

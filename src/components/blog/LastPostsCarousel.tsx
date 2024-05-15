@@ -14,7 +14,7 @@ export default function LastPostsCarousel({ articles }: Props) {
         { articles?.map((post: Article) =>
           <CarouselItem className="blog-list-item show sm:basis-1/2 md:basis-1/2 lg:basis-1/3" key={ post.id }>
             <a
-              href={ post.attributes.static_date ? `/blog/${ post.attributes.url }` : `/${ post.attributes.url }` }
+              href={ `/blog/${ post.attributes.url }` }
               className="blog-list-item__link">
               <div>
                 <div className="blog-list-item__image-wrapper">

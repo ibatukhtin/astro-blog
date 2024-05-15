@@ -9,9 +9,9 @@ const { articles } = Astro.props;
 <div>
 	{ articles.length &&
 		<ul class='ul-unstyled blog-list'>
-			{ articles?.map((post: Article, index) =>
+			{ articles?.map((article: Article, index) =>
 				<li class={index < 9 ? 'blog-list-item show' : 'blog-list-item'}>
-					<PostPreview post={ post } loading={index < 2 ? 'preload' : 'lazy'} />
+					<PostPreview article={ article } loading={index < 2 ? 'preload' : 'lazy'} />
 				</li>
 			) }
 		</ul>

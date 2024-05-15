@@ -19,6 +19,8 @@ export const postFeedback = async (feedbackInput: FeedbackInput) => {
       body: JSON.stringify(feedbackInput)
     }
   );
+  console.log('Response:')
+  console.log(response)
   if (!response.ok) {
     throw RequestError.fromErrorCode(response.status);
   }

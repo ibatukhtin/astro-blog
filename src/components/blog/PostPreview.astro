@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import DateFormatter from "./DateFormatter";
 import '../../styles/postPreview.styles.scss';
-const { post, loading } = Astro.props;
+const { article, loading } = Astro.props;
 const {
   title,
   description,
@@ -11,9 +11,9 @@ const {
   cover,
   static_img_url,
   static_date,
-} = post.attributes;
+} = article.attributes;
 ---
-<a href={ static_date ? `/blog/${ url }` : `/${ url }` } class="blog-list-item__link">
+<a href={ `/blog/${ url }` } class="blog-list-item__link">
 	<div class="blog-list-item__content">
 		<div class="blog-list-item__image-wrapper">
 			{ static_img_url &&

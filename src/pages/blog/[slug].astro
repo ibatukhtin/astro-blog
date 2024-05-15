@@ -1,14 +1,14 @@
 ---
-import '../styles/blog-post.styles.scss';
-import fetchApi from '../lib/strapi';
-import type Article from '../interfaces/article';
-import ReactMarkdown from '../components/blog/ReactMarkdown';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Author from '../components/blog/Author.astro';
-import PostHeader from '../components/blog/PostHeader.astro';
-import RelatedPosts from "../components/blog/RelatedPosts.astro";
-import TableOfContent from "../components/blog/TableOfContent";
-import ShareButtons from "../components/blog/SharedButtons.astro"
+import '../../styles/blog-post.styles.scss';
+import fetchApi from '../../lib/strapi';
+import type Article from '../../interfaces/article';
+import ReactMarkdown from '../../components/blog/ReactMarkdown';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Author from '../../components/blog/Author.astro';
+import PostHeader from '../../components/blog/PostHeader.astro';
+import RelatedPosts from "../../components/blog/RelatedPosts.astro";
+import TableOfContent from "../../components/blog/TableOfContent";
+import ShareButtons from "../../components/blog/SharedButtons.astro"
 
 export async function getStaticPaths() {
   const articles = await fetchApi<Article[]>({
@@ -50,7 +50,7 @@ const openGraph = {
 				  <article>
 					  <nav class='breadcrumbs' aria-label='Breadcrumb'>
 						  <ol class='ul-unstyled breadcrumbs-list' role='list'>
-							  <li class='breadcrumbs-item'><a href='/'>Main</a></li>
+							  <li class='breadcrumbs-item'><a href='/public'>Main</a></li>
 							  <li class='breadcrumbs-item'><a href='/blog'>Blog</a></li>
 							  <li class='breadcrumbs-item'>{ article.attributes.title }</li>
 						  </ol>
