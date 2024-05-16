@@ -32,5 +32,5 @@ jobs:
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TRIPLAY_DEVELOPMENT }}
-          projectId: dev-project-id
+          projectId: triplay-development
           channelId: live
