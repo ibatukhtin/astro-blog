@@ -1,0 +1,36 @@
+@import './utils';
+.feedback-form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 4rem 0;
+  h2 {
+    text-align: center;
+  }
+  &__wrapper {
+    width: px-to-rem(500);
+    max-width: px-to-rem(500);
+  }
+  h2 {
+    margin-bottom: 1rem;
+  }
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
+  }
+  &__label {
+    margin-bottom: 0.2rem;
+    font-size: px-to-rem(14);
+  }
+  &__message {
+    display: flex;
+    justify-content: center;
+    font-size: px-to-rem(12);
+  }
+}
+

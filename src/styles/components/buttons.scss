@@ -33,6 +33,12 @@
   }
 }
 
+.tp-button-medium {
+  height: px-to-rem(42);
+  padding: 0 1.8rem;
+  font-size: px-to-rem(16);
+}
+
 .button-with-arrow {
   .mantine-Button-label {
     position: relative;

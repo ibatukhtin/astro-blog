@@ -1,0 +1,134 @@
+---
+import '../styles/static-pages.styles.scss';
+import FeedbackForm from '../components/layout/feedback-form';
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Join Us: Become a Partner at Triplay.ai";
+const description = 'Become a Partner today and join Triplay.ai\'s mission to transform travel. Let\'s create unforgettable experiences together.';
+const openGraph = {
+	basic: {
+		title: "Join Us: Become a Partner at Triplay.ai",
+		description: 'Become a Partner today and join Triplay.ai\'s mission to transform travel. Let\'s create unforgettable experiences together.',
+		type: "website",
+		image: "https://triplay.ai/triplay-logo.svg",
+		url: 'https://triplay.ai/become-partner',
+	}
+};
+---
+<BaseLayout
+	pageTitle={pageTitle}
+	description={description}
+	openGraph={openGraph}
+>
+	<section id='hero' class='hero'>
+		<div class='row'>
+			<div class='col'>
+				<div class='hero__content'>
+					<h1 class='hero__title'>
+						Become a partner
+					</h1>
+					<p class='hero__description'>
+						As an innovative travel planning platform, Triplay is committed to collaborating with like-minded
+						individuals to enhance travel opportunities around the world.</p>
+					<div class='hero__buttons'>
+						<a
+							class='tp-button-filled'
+							href='#feedbackForm'
+							id='contactUs'
+							rel='nofollow'
+							style={ { padding: '0.5rem 1rem', textDecoration: 'none' } }
+						>
+							Contact us
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class='static-page'>
+		<div class='static-content'>
+			<section>
+				<h2>Who Can Partner with Us?</h2>
+				<p>We welcome partnerships with:</p>
+				<ul>
+					<li>Airlines</li>
+					<li>Hotel chains and individual hotels</li>
+					<li>Insurance companies</li>
+					<li>Tour operators and travel agencies</li>
+					<li>Transportation companies</li>
+					<li>Tech firms and startups in the travel sector</li>
+					<li>Travel influencers and bloggers</li>
+					<li>Travel Websites and Community</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Mutual Benefits</h2>
+				<p>Our partners enjoy:</p>
+				<ul>
+					<li>Access to a broad audience of travelers</li>
+					<li>Opportunities for service integration on our platform</li>
+					<li>Exchange of technology and innovations</li>
+					<li>Marketing and PR support</li>
+					<li>Transparent analytics and reporting</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Steps to Collaboration</h2>
+				<p>To become a partner:</p>
+				<ul>
+					<li>Fill out the partnership application form.</li>
+					<li>Discuss terms and expectations with our partnership manager.</li>
+					<li>Sign the partnership agreement.</li>
+					<li>Integrate and launch joint projects.</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Become a Featured Partner</h2>
+				<p>Enhance your visibility:</p>
+				<ul>
+					<li>Secure a spot on our Partners page with a logo or banner.</li>
+					<li>Feature on our homepage for premium exposure.</li>
+					<li>Get featured in our newsletters and social media.</li>
+				</ul>
+			</section>
+		</div>
+		<div id='feedbackForm' class='container static-content__container'>
+			<FeedbackForm client:idle />
+		</div>
+		<section>
+			<h2>Links Exchange</h2>
+			<ul>
+				<li>
+					<a href='https://beststartup.us/triplay-how-ai-helps-you-make-a-travel-plan-in-just-a-couple-of-minutes/'>American
+						Startup Magazine</a>
+				</li>
+				<li>
+					<a href='https://startupsmagazine.co.uk/article-discovering-inspiration-through-travel-easier-triplay'>A
+						digital and print magazine</a>
+				</li>
+				<li>
+					<a href='https://www.toolify.ai/tool/triplay'>Discover The Best AI Website</a>
+				</li>
+				<li>
+					<a href='https://aitree.io/tool/triplay'>Discovering the right AI tools made easy</a>
+				</li>
+				<li>
+					<a href='https://tools.wingzero.tw/article/sn/1955'>Chinese startup magazine</a>
+				</li>
+				<li>
+					<a href='https://www.superpowerdaily.com/p/158-ai-girlfriends-addressing-the-loneliness-epidemic'>AI tools
+						magazine</a>
+				</li>
+				<li>
+					<a href='https://www.aitoolnet.com/triplayai'>AI tools directory website</a>
+				</li>
+				<li>
+					<a href='https://www.trendhunter.com/trends/triplay-travel-planner'>Helping brands Create the Future</a>
+				</li>
+				<li>
+					<a href='https://chatbene.com/triplay/'>AI startup magazine</a>
+				</li>
+			</ul>
+		</section>
+	</div>
+</BaseLayout>

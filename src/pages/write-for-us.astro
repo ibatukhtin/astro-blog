@@ -1,0 +1,152 @@
+---
+import '../styles/static-pages.styles.scss';
+import FeedbackForm from '../components/layout/feedback-form';
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Write for Us at Triplay.ai: Join Our Contributor Community";
+const description = 'Contribute to Triplay.ai: We seek passionate travelers. Write for us and share your adventures with a global audience.';
+const openGraph = {
+	basic: {
+		title: "Write for Us at Triplay.ai: Join Our Contributor Community",
+		description: 'Contribute to Triplay.ai: We seek passionate travelers. Write for us and share your adventures with a global audience.',
+		type: "website",
+		image: "https://triplay.ai/triplay-logo.svg",
+		url: 'https://triplay.ai/write-for-us',
+	}
+};
+---
+<BaseLayout
+	pageTitle={pageTitle}
+	description={description}
+	openGraph={openGraph}
+>
+	<section id='hero' class='hero'>
+		<div class='row'>
+			<div class='col'>
+				<div class='hero__content'>
+					<h1 class='hero__title'>
+						Write for us
+					</h1>
+					<p class='hero__description'>
+						Are you an avid traveller whose stories take readers to the far corners of the globe? Triplay is the
+						perfect place for travellers and bloggers to create unique content and share it with like-minded
+						people.</p>
+					<div class='hero__buttons'>
+						<a
+							class='tp-button-filled'
+							href='#feedbackForm'
+							id='contactUs'
+							rel='nofollow'
+							style={ { padding: '0.5rem 1rem', textDecoration: 'none' } }
+						>
+							Contact us
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class='static-page'>
+		<div class='static-content'>
+			<section>
+				<h2>Why Collaborate with Triplay?</h2>
+				<p>Triplay is not just a platform; it&apos;s a gateway to sharing your travel experiences with a burgeoning
+					audience who share your zeal for exploration. Writing with us offers you:</p>
+				<ul>
+					<li>Exposure: Your voice and vision can reach a global audience, eager to consume authentic travel stories
+						and advice.
+					</li>
+					<li>Credibility: Build your personal or company brand by aligning with Triplay.ai, a hub for top-notch
+						travel planning powered by playful AI.
+					</li>
+					<li>Engagement: Gain insightful feedback, interact with readers, and become part of a community that
+						values travel as much as you do.
+					</li>
+					<li>Links: Receive a shout-out with a backlink to your own blog or website, driving traffic and increasing
+						visibility.
+					</li>
+					<li>Promotion: Enjoy the amplification of your content through our social media channels, newsletters, and
+						more.
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Your Journey with Us: The Content Odyssey</h2>
+				<p>Embark on an editorial journey with us through the following phases:</p>
+				<ul>
+					<li>Pitching: Kick-start the process by getting in touch with us. Share your ideas, and let’s brainstorm
+						together!
+					</li>
+					<li>Creating: Develop your content with a minimum of 4000 words of original, engaging narrative or
+						informative guides. Embed it with legal pictures and videos that enhance the storytelling.
+					</li>
+					<li>Polishing: After submission, your piece will undergo a quality check, ensuring it aligns with our
+						values and editorial standards.
+					</li>
+					<li>Publishing: Upon finalizing the content, we celebrate its launch on our platform, inviting travelers
+						to navigate through your experiences.
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Content Creation Guidelines</h2>
+				<p>To ensure that the collaboration is fruitful and your content captivates our audience, we ask that you
+					adhere to the following guidelines:</p>
+				<ul>
+					<li>Originality: Your submission should be a treasure chest of fresh content, not previously published
+						elsewhere.
+					</li>
+					<li>Relevance: We revel in stories and tips centered on playful and innovative travel experiences that
+						resonate with our AI-driven theme.
+					</li>
+					<li>Quality: Your content must be well-researched, eloquently written, and reflect a high standard of
+						grammatical precision.
+					</li>
+					<li>Visuals: Accompany your articles with high-quality, copyright-cleared images or videos. We appreciate
+						a photo story that can speak as powerfully as the written word.
+					</li>
+					<li>SEO Optimization: Craft your article with SEO in mind. This includes using relevant keywords, meta
+						descriptions, and following best online readability practices.
+					</li>
+					<li>Bio & Links: Introduce yourself with a brief bio and include links to your website or social media
+						profiles.
+					</li>
+					<li>Non-promotional: Content should be informative and engaging, not overtly promotional, except in the
+						case of sponsored posts.
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Content Ideas We Love</h2>
+				<p>To ensure that the collaboration is fruitful and your content captivates our audience, we ask that you
+					adhere to the following guidelines:</p>
+				<ul>
+					<li>In-depth travel itineraries powered by AI suggestions</li>
+					<li>Articles on the intersection of technology and travel</li>
+					<li>Unique travel experiences and how AI can enhance them</li>
+					<li>Cultural explorations and insights into global traditions</li>
+					<li>Sustainable travel initiatives and eco-friendly planning</li>
+					<li>Guides for digital nomads and remote work travel</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Sponsored Opportunities</h2>
+				<p>For companies wishing to feature sponsored content on Triplay, we offer tailored packages that include
+					no-follow links and wide-reaching promotional efforts across our digital presence. Reach out to us to
+					discuss rates and opportunities.</p>
+			</section>
+			<section>
+				<h2>Ready to Share Your Voyage?</h2>
+				<p>If Triplay sounds like the perfect home for your travel narratives or promotional content, we&apos;re
+					excited
+					to hear from you. Send us an email with your proposed topics and a brief abstract of your article.
+					Let&apos;s
+					embark on this collaborative journey and bring inspiring travel content to life, together!</p>
+			</section>
+
+		</div>
+		<div id='feedbackForm' class='container static-content__container'>
+			<FeedbackForm client:idle />
+		</div>
+	</div>
+</BaseLayout>
