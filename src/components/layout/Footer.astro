@@ -1,6 +1,6 @@
 ---
 import '../../styles/footer.styles.scss';
-import TriPlayLogo from '../../../public/images/triplay-logo.svg';
+import TriPlayLogo from '../../../public/images/triptip-logo.svg';
 import VallexLogo from '../../../public/images/vallex-logo-grey.svg';
 import { Image } from 'astro:assets';
 import Letters from '../../../public/icons/letters.svg';
@@ -19,6 +19,7 @@ const year = new Date().getFullYear();
 				style={ { display: 'flex', alignItems: 'center' } }>
 				<Image
 					src={ TriPlayLogo }
+					width={ 106 }
 					alt='TriPlay'
 					loading="lazy"
 					decoding="async"

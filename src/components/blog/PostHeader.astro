@@ -7,6 +7,8 @@ const {
 	category,
 	publishedAt,
 	cover,
+	static_img_url,
+	slug
 } = post.attributes;
 ---
 
@@ -24,12 +26,21 @@ const {
 		}
 		{ cover.data &&
 			<Image
-				className='blog-post-image'
+				class='blog-post-image'
 				src={ cover.data.attributes.formats.medium.url }
 				width={ cover.data.attributes.formats.medium.width }
 				height={ cover.data.attributes.formats.medium.height }
 				alt={title}
 				loading="preload"
+				style={{ width: '100%', aspectRatio: '3/2', height: 'auto', objectFit: 'cover' }}
+			/>
+		}
+		{ static_img_url &&
+			<img
+				class='blog-post-image'
+				src={ `https://storage.googleapis.com/triplay-static/images/${ slug }/small_${ static_img_url }` }
+				alt={title}
+				loading='eager'
 				style={{ width: '100%', aspectRatio: '3/2', height: 'auto', objectFit: 'cover' }}
 			/>
 		}

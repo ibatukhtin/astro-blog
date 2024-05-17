@@ -16,7 +16,7 @@ export async function getStaticPaths() {
     wrappedByKey: 'data',
   });
 
-  return articles.filter(article => !article.attributes.static_date).map((article) => ({
+  return articles.filter(a => a.attributes.content).map((article) => ({
     params: { slug: article.attributes.slug },
     props: article,
   }));
@@ -39,7 +39,9 @@ const openGraph = {
 ---
 <BaseLayout
 	pageTitle={ article?.attributes.title }
-	description={ metadata?.metaDescription }
+	metaTitle={ metadata?.metaTitle }
+	description={ article?.attributes.description }
+	metaDescription={ metadata?.metaDescription }
 	keywords={ metadata?.metaKeywords }
 	openGraph={ openGraph }
 >
@@ -92,17 +94,17 @@ const openGraph = {
 						</section>
 				  </article>
 			  </div>
-				{ article.attributes.cover?.data &&
-					<div class="post-aside">
-						<div style={ { height: '4rem' } }></div>
-						<aside class='table-of-content'>
+				<div class="post-aside">
+					<div style={ { height: '4rem' } }></div>
+					<aside class='table-of-content'>
+						{ article.attributes.content &&
 							<TableOfContent content={ article.attributes.content } client:load />
-							<div style="margin-top: 1rem">
-								<ShareButtons post={ article } />
-							</div>
-						</aside>
-					</div>
-				}
+						}
+						<div style="margin-top: 1rem">
+							<ShareButtons post={ article } />
+						</div>
+					</aside>
+				</div>
 		  </div>
 			{ related?.length !== 0 &&
 				<section class='related-posts'>
