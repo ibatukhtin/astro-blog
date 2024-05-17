@@ -45,9 +45,9 @@ const articles = await fetchApi<Article[]>({
 						{ articles.map((article: Article) =>
 							<li class='blog-list-item'>
 								<a
-									href={ article.attributes.static_date
-										? `/blog/${ article.attributes.url }/index.html`
-										: `/blog/${ article.attributes.url }` }
+									href={ article.attributes.content
+										? `/blog/${ article.attributes.url }`
+										: `/blog/${ article.attributes.url }/index.html` }
 								>
 									{ article.attributes.title }
 								</a>
