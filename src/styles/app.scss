@@ -15,17 +15,7 @@
 
 :root {
   --rem-size: 16;
-  --city-heading-width: 100%;
-  --places-heading-width: 100%;
-  --recommended-height: 11.75rem;
-  --mantine-header-height: 3.875rem;
-  --mantine-footer-height: 3rem;
-  --tp-footer-height: 9.375rem;
   --tp-primary-color: #F46C9E;
-  --tp-secondary-color: #FFD0E2;
-  --tp-third-color: #F46C9E;
-  --tp-light-color: #E5DBFF;
-  --gray-dark: #212529;
   --bg: #F7F7F7;
 
   --Pink-Accent: #F46C9E;
@@ -67,7 +57,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
   min-height: 100dvh;
   color: var(--Black);
 }

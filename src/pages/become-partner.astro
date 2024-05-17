@@ -14,6 +14,18 @@ const openGraph = {
 	}
 };
 ---
+<script>
+	const handleClick = () => {
+		const form = document.getElementById('feedbackForm');
+		window.scrollTo({
+			top: form?.offsetTop ? form?.offsetTop - 70 : 0,
+			behavior: 'smooth'
+		})
+	}
+	document.querySelector('.to-form').addEventListener('click', () => {
+		handleClick();
+	});
+</script>
 <BaseLayout
 	pageTitle={pageTitle}
 	description={description}
@@ -30,15 +42,14 @@ const openGraph = {
 						As an innovative travel planning platform, Triplay is committed to collaborating with like-minded
 						individuals to enhance travel opportunities around the world.</p>
 					<div class='hero__buttons'>
-						<a
-							class='tp-button-filled'
-							href='#feedbackForm'
+						<div
+							class='tp-button-filled to-form'
 							id='contactUs'
 							rel='nofollow'
 							style={ { padding: '0.5rem 1rem', textDecoration: 'none' } }
 						>
 							Contact us
-						</a>
+						</div>
 					</div>
 				</div>
 			</div>

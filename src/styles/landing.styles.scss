@@ -28,6 +28,15 @@
     display: flex;
     justify-content: center;
   }
+
+  h3 {
+    font-size: 1.8rem;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+    @media (max-width: 62rem) {
+      font-size: 1.2rem;
+    }
+  }
 }
 
 .section-title {
@@ -45,21 +54,6 @@
     @media (max-width: 28rem) {
       font-size: 1.4rem;
     }
-  }
-}
-
-h1, h2, h3 {
-  @media (max-width: 62rem) {
-    font-weight: 600;
-  }
-}
-
-h3 {
-  font-size: 1.8rem;
-  margin: 0 0 1rem;
-  line-height: 1.2;
-  @media (max-width: 62rem) {
-    font-size: 1.3rem;
   }
 }
 
@@ -135,17 +129,6 @@ h3 {
         margin: 0 auto;
       }
     }
-  }
-}
-
-.landing__login {
-  &.button-with-arrow {
-    height: 3.5rem;
-    border-radius: 2rem;
-    font-size: 1.25rem;
-    display: inline-flex;
-    align-items: center;
-    padding: 1.5rem 2rem;
   }
 }
 
@@ -238,12 +221,7 @@ h3 {
   }
 }
 
-.last-posts-container {
-  max-width: 100%;
-}
-
 .last-posts {
-  max-width: calc(100vw - 2rem);
   background-color: var(--bg);
   border-radius: 1.4rem;
   padding: 1rem 1.5rem 1.5rem;
@@ -266,48 +244,32 @@ h3 {
   }
 }
 
-.faq-title {
-  font-size: 2.2rem;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
-  color: #212529;
-  @media (max-width: 42rem) {
-    width: 100%;
-    font-size: 1.6rem;
-    text-align: center;
-  }
-}
-
-.faq-content {
-  width: 83%;
-  padding: 1rem;
-  border-radius: 1rem;
-  border: 1px solid #CED4DA;
-  @media (max-width: 62rem) {
-    width: 80%;
-  }
-  @media (max-width: 42rem) {
-    width: 100%;
-    font-size: 0.9rem;
-  }
-}
-
 .faq {
-  .mantine-Accordion-item {
-    padding: 1rem 0;
-    &:last-child {
-      border-bottom: none;
+  &-title {
+    font-size: 2.2rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    color: #212529;
+    @media (max-width: 42rem) {
+      width: 100%;
+      font-size: 1.6rem;
+      text-align: center;
     }
   }
 
-  .mantine-Accordion-control span {
-    font-weight: 800;
-    color: #495057;
-  }
-
-  .mantine-Accordion-panel {
-    color: #495057;
+  &-content {
+    width: 83%;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid #CED4DA;
+    @media (max-width: 62rem) {
+      width: 80%;
+    }
+    @media (max-width: 42rem) {
+      width: 100%;
+      font-size: 0.9rem;
+    }
   }
 }
 

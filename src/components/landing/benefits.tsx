@@ -13,11 +13,11 @@ function Benefits() {
           <h3>Instant trip planning at your fingertips – Try now for free</h3>
           <div className='hero__buttons'>
             <a
-              className='landing__login button-with-arrow tp-button-filled'
+              className='tp-button-filled tp-button-with-arrow tp-button-lg'
               href='/create-trip'
               id='createTrip3'
             >
-              <span className='mantine-Button-label'>
+              <span className='button-content'>
                 Create trip
               </span>
             </a>

@@ -27,10 +27,10 @@ const Cookie = () => {
           use of cookies.
         </div>
         <div className='cookie-buttons'>
-          <button className='tp-button-outline' onClick={ () => acceptCookie() }>
+          <button className='tp-button-outline__black' onClick={ () => acceptCookie() }>
             Got it
           </button>
-          <a href='/privacy' className='tp-button-outline'>
+          <a href='/privacy' className='tp-button-outline__black'>
             Privacy policy
           </a>
         </div>

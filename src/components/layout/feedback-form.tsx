@@ -89,12 +89,12 @@ const FeedbackForm = () => {
 
           <div className='feedback-form__button'>
             <button
-              className={`${isLoading ? 'tp-button-outline' : 'tp-button-filled'} tp-button-medium button-with-arrow`}
+              className={`${isLoading ? 'tp-button-outline' : 'tp-button-filled'} tp-button-md tp-button-with-arrow`}
               style={ { height: '42px', marginTop: '10px' } }
               type='submit'
               onClick={ onSubmit }
             >
-              <div className='mantine-Button-label'>
+              <div className='button-content'>
                 { !isLoading &&
                   <div>Submit</div>
                 }

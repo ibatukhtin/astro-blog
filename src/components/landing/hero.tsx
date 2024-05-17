@@ -9,11 +9,11 @@ function Hero() {
               Smart & Playful Trips!<br />
             </h1>
             <a
-              className='landing__login button-with-arrow tp-button-filled'
+              className='tp-button-filled tp-button-with-arrow tp-button-lg'
               href='/create-trip'
               id='createTrip2'
             >
-              <span className='mantine-Button-label'>
+              <span className='button-content'>
                 Create trip
               </span>
             </a>

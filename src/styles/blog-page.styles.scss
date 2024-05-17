@@ -1,35 +1,7 @@
 .blog-page {
-  .breadcrumbs {
-    margin: 1rem 0;
-  }
-
-  .breadcrumbs-list {
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 0.9rem;
-    color: gray;
-  }
-
-  .breadcrumbs-item {
-    position: relative;
-  }
-
-  .breadcrumbs-item a {
-    color: var(--tp-primary-color);
-    text-decoration: none;
-  }
-
-  .breadcrumbs-item:not(:last-child)::after {
-    content: ">";
-    margin: 0 0.5rem;
-    color: gray;
-  }
-
+  @import './components/breadcrumbs';
   .blog-wrapper {
     padding-bottom: 2rem;
-    .posts-wrapper {
-      //min-height: 100vh;
-    }
     h1 {
       font-size: 2rem;
       text-align: center;
@@ -52,15 +24,5 @@
 
   .blog-list-all {
     grid-gap: 1rem;
-  }
-
-  .blog-page-seo-text {
-    //display: none;
-  }
-
-  @media (max-width: 62rem) {
-    .breadcrumbs-list {
-      font-size: 0.8rem;
-    }
   }
 }
