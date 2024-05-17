@@ -20,5 +20,8 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [],
     rehypePlugins: []
+  },
+  redirects: {
+    "/blog/[...slug]": "/blog/[...slug]/index.html"
   }
 });
