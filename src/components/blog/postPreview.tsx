@@ -20,7 +20,7 @@ export default function Posts({post, loading}: Props) {
 	} = post.attributes;
 
 	return (
-		<a href={ content ? `/blog/${ url }` : `/blog/${ url }/index.html` } className="blog-list-item__link">
+		<a href={ `/blog/${ url }` } className="blog-list-item__link">
 			<div>
 				<div className="blog-list-item__image-wrapper">
 					{ static_img_url &&

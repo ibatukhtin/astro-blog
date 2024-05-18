@@ -45,9 +45,7 @@ const articles = await fetchApi<Article[]>({
 						{ articles.map((article: Article) =>
 							<li class='blog-list-item'>
 								<a
-									href={ article.attributes.content
-										? `/blog/${ article.attributes.url }`
-										: `/blog/${ article.attributes.url }/index.html` }
+									href={ `/blog/${ article.attributes.url }` }
 								>
 									{ article.attributes.title }
 								</a>

@@ -14,7 +14,7 @@ const {
   static_date,
 } = article.attributes;
 ---
-<a href={ content ? `/blog/${ url }` : `/blog/${ url }/index.html` } class="blog-list-item__link">
+<a href={ `/blog/${ url }` } class="blog-list-item__link">
 	<div class="blog-list-item__content">
 		<div class="blog-list-item__image-wrapper">
 			{ static_img_url &&
