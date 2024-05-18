@@ -43,7 +43,9 @@ const articles = await fetchApi<Article[]>({
 ---
 <BaseLayout
 	pageTitle={ author?.attributes.name }
+	metaTitle={ author?.attributes.name }
 	description={ metadata?.metaDescription }
+	metaDescription={ metadata?.metaDescription }
 	keywords={ metadata?.metaKeywords }
 	openGraph={ openGraph }
 >
