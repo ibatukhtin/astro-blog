@@ -16,7 +16,7 @@ export async function getStaticPaths() {
     wrappedByKey: 'data',
   });
 
-  return articles.filter(a => a.attributes.content).map((article) => ({
+  return articles.map((article) => ({
     params: { slug: article.attributes.slug },
     props: article,
   }));
